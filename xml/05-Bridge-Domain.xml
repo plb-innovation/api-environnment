@@ -1,0 +1,10 @@
+
+<polUni>
+	<fvTenant name="mamorim">
+		<fvCtx name="pn-test"/>
+		<fvBD arpFlood="yes" name="bf-test">
+			<fvRsCtx tnFvCtxName="pn-test"/>
+			<fvSubnet ip="sub-test"/>
+		</fvBD>
+	</fvTenant>
+</polUni>

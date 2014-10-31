@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cisco Paris Lab Network API Environment</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="navigation" name="navigation">
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="index.html">Cisco Paris Lab Network API Environment</a>
+</div>
+<!-- /.navbar-header -->
+
+<ul class="nav navbar-top-links navbar-right">
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-messages">
+        <li>
+            <a href="#">
+                <div>
+                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                </div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                </div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                </div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a class="text-center" href="#">
+                <strong>Read All Messages</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- /.dropdown-messages -->
+</li>
+<!-- /.dropdown -->
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-tasks">
+        <li>
+            <a href="#">
+                <div>
+                    <p>
+                        <strong>Task 1</strong>
+                        <span class="pull-right text-muted">40% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                            <span class="sr-only">40% Complete (success)</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <p>
+                        <strong>Task 2</strong>
+                        <span class="pull-right text-muted">80% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                            <span class="sr-only">80% Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <p>
+                        <strong>Task 3</strong>
+                        <span class="pull-right text-muted">60% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                            <span class="sr-only">60% Complete (warning)</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <p>
+                        <strong>Task 4</strong>
+                        <span class="pull-right text-muted">80% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                            <span class="sr-only">80% Complete (danger)</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a class="text-center" href="#">
+                <strong>See All Tasks</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- /.dropdown-tasks -->
+</li>
+<!-- /.dropdown -->
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-alerts">
+        <li>
+            <a href="#">
+                <div>
+                    <i class="fa fa-comment fa-fw"></i> New Comment
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted small">12 minutes ago</span>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <i class="fa fa-tasks fa-fw"></i> New Task
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                </div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a class="text-center" href="#">
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- /.dropdown-alerts -->
+</li>
+<!-- /.dropdown -->
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-user">
+        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+        </li>
+        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        </li>
+    </ul>
+    <!-- /.dropdown-user -->
+</li>
+<!-- /.dropdown -->
+</ul>
+<!-- /.navbar-top-links -->
+
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a onclick="showStuff('aci-configuration')">ACI</a>
+                    </li>
+                    <li>
+                        <a onclick="showStuff('qvbn-configuration')">QvBN</a>
+                    </li>
+                    <li>
+                        <a href="index.html">CSR</a>
+                    </li>
+                    <li>
+                        <a href="index.html">UCS</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="flot.html">Flot Charts</a>
+                    </li>
+                    <li>
+                        <a href="morris.html">Morris.js Charts</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->
+</nav>
+
+<div id="page-wrapper">
+
+<!-- /.row -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+
+    function WindowsInit() {
+        $('.box').hide();
+        $('.subbox').hide();
+        $('#dashboard').show();
+    }
+
+    function showStuff(id) {
+        $('.box').hide();
+        $('#'+id).show();
+    }
+
+    function showStuffSub(id) {
+        $('.subbox').hide();
+        $('#'+id).show();
+    }
+
+    function showStuffNonesub() {
+        $('.subbox').hide();
+    }
+
+    function traiterSubmit(f){
+        if (f.host.value != null){
+            alert("yes");
+
+        }
+    }
+</script>
+
+<div class="box" id="dashboard">
+    <div class="col-lg-12">
+        <h1 class="page-header">Dashboard</h1>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge" onclick="showStuff('aci-configuration')">ACI</div>
+                        <div>Configuration</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" onclick="showStuff('aci-configuration')">
+                    <span class="pull-left" onclick="showStuff('aci-configuration')" >View Details</span>
+                    <span class="pull-right" onclick="showStuff('aci-configuration')"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge" onclick="showStuff('qvbn-configuration')">QvBN</div>
+                        <div>Configuration</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer" onclick="showStuff('qvbn-configuration')">
+                    <span class="pull-left" onclick="showStuff('qvbn-configuration')">View Details</span>
+                    <span class="pull-right" onclick="showStuff('qvbn-configuration')"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">CSR</div>
+                        <div>Configuration</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">UCS</div>
+                        <div>Configuration</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+    WindowsInit();
+    $("#new-tenant").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+        $.post('CreateTenant.php',
+            {
+                // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
+                host : $("#host").val(),
+                login : $("#login").val(),
+                password : $("#passwd").val(),   
+                tenant : $("#tenant").val()
+            },
+            function(data){
+                $("#resultat-new-tenant").html("<p>"+data+"</p>");
+
+            },
+            'text'
+        );
+    });
+
+    $("#new-bridge").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+        $.post('CreateBridgeDomain.php',
+                {
+                    host : $("#host-bridge").val(),
+                    login : $("#login-bridge").val(),
+                    password : $("#passwd-bridge").val(),
+                    tenant : $("#tenant-bridge").val(),
+                    bridge : $("#bridge-domain-bridge").val(),
+                    private : $("#private-network-bridge").val(),
+                    subnet : $("#subnet-bridge").val()
+                },
+                function(data){
+                    $("#resultat-new-bridge-domain").html("<p>"+data+"</p>");
+
+                },
+                'text'
+        );
+    });
+
+    $("#new-physical-domain").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+        $.post('CreatePhysicalDomain.php',
+                {
+                    host : $("#host-physical").val(),
+                    login : $("#login-physical").val(),
+                    password : $("#passwd-physical").val(),
+                    physical : $("#bridge-domain-bridge").val()
+                },
+                function(data){
+                    $("#resultat-new-physical-domain").html("<p>"+data+"</p>");
+
+                },
+                'text'
+        );
+    });
+
+    $("#new-pool-vlan").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+        $.post('CreatePoolVlans.php',
+                {
+                    host : $("#host-pool-vlan").val(),
+                    login : $("#login-pool-vlan").val(),
+                    password : $("#passwd-pool-vlan").val(),
+                    tenant : $("#tenant-pool-vlan").val(),
+                    mode : $("#mode-pool-vlan").val(),
+                    vlan : $("#vlan-pool-vlan").val(),
+                    from : $("#from-vlan-pool-vlan").val(),
+                    to : $("#to-pool-vlan").val()
+                },
+                function(data){
+                    $("#resultat-new-pool-vlan").html("<p>"+data+"</p>");
+
+                },
+                'text'
+        );
+    });
+
+
+    $("#new-epg").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+        $.post('CreateEPG.php',
+                {
+                    host : $("#host-epg").val(),
+                    login : $("#login-epg").val(),
+                    password : $("#passwd-epg").val(),
+                    tenant : $("#tenant-epg").val(),
+                    profile : $("#profile-epg").val(),
+                    epg : $("#epg-epg").val(),
+                    vlan : $("#vlan-epg").val(),
+                    bridge : $("#bridge-epg").val()
+                },
+                function(data){
+                    $("#resultat-new-epg").html("<p>"+data+"</p>");
+
+                },
+                'text'
+        );
+    });
+
+
+    $("#del-tenant").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+        $.post('DeleteTenant.php',
+                {
+                    host : $("#del-host-tenant").val(),
+                    login : $("#del-login-tenant").val(),
+                    password : $("#del-passwd-tenant").val(),
+                    tenant : $("#del-tenant-tenant").val()
+                },
+                function(data){
+                    $("#resultat-del-tenant").html("<p>"+data+"</p>");
+
+                },
+                'text'
+        );
+    });
+
+    $("#del-pool-vlan").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+        $.post('DeletePoolVlan.php',
+                {
+                    host : $("#del-host-pool-vlan").val(),
+                    login : $("#del-login-pool-vlan").val(),
+                    password : $("#del-passwd-pool-vlan").val(),
+                    tenant : $("#del-vlan-pool-vlan").val()
+                },
+                function(data){
+                        $("#resultat-del-pool-vlan").html("<p>"+data+"</p>");
+
+                },
+                'text'
+        );
+    });
+    instance
+
+    $("#instance").click(function(e){
+        showStuff('qvbn-configuration');
+        e.preventDefault();
+
+    });
+
+    function sleep(milliSeconds){
+            var startTime = new Date().getTime(); // get the current time
+            while (new Date().getTime() < startTime + milliSeconds); // hog cpu
+        }
+
+
+/*
+    $("#instance").click(function(e){
+        showStuff('qvbn-configuration');
+        e.preventDefault();
+
+        for (var i=1;i<=100;i++) {
+            $('.progress-bar').css({width : i+'%'});
+            sleep(1000);
+        }
+
+    });
+    */
+});
+
+
+</script>
+
+
+<div class="box" id="aci-configuration">
+    <div class="col-lg-12">
+        <h1 class="page-header">ACI</h1>
+    </div>
+
+    <div class="col-lg-4" style="width: 100%">
+        <div class="well well-sm">
+            <h4>Description</h4>
+            <p>L’Action catholique des milieux indépendants est un mouvement "apostolique au sein de l'Église catholique" comme les autres mouvements d'action catholique. Lié à la Conférence des évêques de France il regroupe des équipes de base de laïcs, ouvertes, en lien avec des clercs. L'objectif est d'évangéliser, de pratiquer une relecture de vie et de participer à la réflexion de l'Église. En plus de la relecture de vie avec des temps de méditations de la parole en lien avec la vie et la société, le mouvement choisit un thème "d'enquête" annuel.</p>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div id="accordion" class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#collapseOne" data-parent="#accordion" data-toggle="collapse">Create order</a></h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label >Create</label>
+                            <select class="form-control">
+                                <option onclick="showStuffNonesub()">None</option>
+                                <option onclick="showStuffSub('from-create-tenant')">Tenant </option>
+                                <option onclick="showStuffSub('from-pool-vlan')">Pool Vlans</option>
+                                <option onclick="showStuffSub('from-physical-domain')">Physical Domain</option>
+                                <option onclick="showStuffSub('from-bridge-domain')">Bridge Domain</option>
+                                <option onclick="showStuffSub('from-epg')">EPG</option>
+                                <option onclick="showStuffNonesub()">Attachable Access Entity Profile</option>
+                            </select>
+                        </div>
+
+                        <div class="subbox" id="from-epg">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Tenant
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-6">
+                                            <form role="form" method="post" name="new-epg">
+                                                <div class="form-group">
+                                                    <label>Name Host</label>
+                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-epg">
+                                                    <p class="help-block">IP address : 10.60.9.165</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Login</label>
+                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-epg">
+                                                    <p class="help-block">Exemple : admin</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd-epg">
+                                                    <p class="help-block">Exemple : cisco123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Tenant</label>
+                                                    <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-epg">
+                                                    <p class="help-block">Exemple : test123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Application Profile Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="profile" id="profile-epg">
+                                                    <p class="help-block">Exemple : Application-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>EPG Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="epg" id="epg-epg">
+                                                    <p class="help-block">Exemple : epg-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Vlan Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="vlan" id="vlan-epg">
+                                                    <p class="help-block">Exemple : vlan-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Bridge Domain</label>
+                                                    <input class="form-control" placeholder="Enter text" name="bridge" id="bridge-epg">
+                                                    <p class="help-block">Exemple : bridge-domain-test</p>
+                                                </div>
+
+                                                <input type="submit" class="btn btn-outline btn-primary" id="new-epg" value="Submit" />
+                                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                            </form>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-new-epg">bash>></p>
+                                            </div>
+                                        </div>
+                                        <!-- /.row (nested) -->
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                        </div>
+
+                        <div class="subbox" id="from-pool-vlan">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Pool Vlan
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-6">
+                                            <form role="form" method="post" name="new-pool-vlan">
+                                                <div class="form-group">
+                                                    <label>Name Host</label>
+                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-pool-vlan">
+                                                    <p class="help-block">IP address : 10.60.9.165</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Login</label>
+                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-pool-vlan">
+                                                    <p class="help-block">Exemple : admin</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd-pool-vlan">
+                                                    <p class="help-block">Exemple : cisco123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Tenant</label>
+                                                    <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-pool-vlan">
+                                                    <p class="help-block">Exemple : test123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Allo Mode</label>
+                                                    <input class="form-control" placeholder="Enter text" name="mode" id="mode-pool-vlan" >
+                                                    <p class="help-block">Exemple : static/dynamic</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Vlan Pool Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="vlan" id="vlan-pool-vlan" >
+                                                    <p class="help-block">Exemple : toto</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>From Vlan</label>
+                                                    <input class="form-control" placeholder="Enter text" name="from" id="from-vlan-pool-vlan">
+                                                    <p class="help-block">Exemple : Vlan-20</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>To Vlan</label>
+                                                    <input class="form-control" placeholder="Enter text" name="to" id="to-pool-vlan">
+                                                    <p class="help-block">Exemple : Vlan-234</p>
+                                                </div>
+
+                                                <input type="submit" class="btn btn-outline btn-primary" id="new-pool-vlan" value="Submit" />
+                                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                            </form>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-new-pool-vlan">bash>></p>
+                                            </div>
+                                        </div>
+                                        <!-- /.row (nested) -->
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                        </div>
+
+                        <div class="subbox" id="from-physical-domain">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Physical Domain
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-6">
+                                            <form role="form" method="post" name="new-physical-domain">
+                                                <div class="form-group">
+                                                    <label>Name Host</label>
+                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-physical">
+                                                    <p class="help-block">IP address : 10.60.9.165</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Login</label>
+                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-physical">
+                                                    <p class="help-block">Exemple : admin</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="form-control" placeholder="Enter text" type="password" name="passwd" id="passwd-physical">
+                                                    <p class="help-block">Exemple : cisco123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Physical Domain Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="physical-domain" id="physical-domain-physical">
+                                                    <p class="help-block">Exemple : physical-Domain-test</p>
+                                                </div>
+
+                                                <input type="submit" class="btn btn-outline btn-primary" id="new-physical-domain" value="Submit" />
+                                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                            </form>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-new-physical-domain">bash>></p>
+                                            </div>
+                                        </div>
+                                        <!-- /.row (nested) -->
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                        </div>
+
+                        <div class="subbox" id="from-bridge-domain">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Bridge Domain
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-6">
+                                            <form role="form" method="post" name="new-bridge-domain">
+                                                <div class="form-group">
+                                                    <label>Name Host</label>
+                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-bridge">
+                                                    <p class="help-block">IP address : 10.60.9.165</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Login</label>
+                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-bridge">
+                                                    <p class="help-block">Exemple : admin</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="form-control" placeholder="Enter text" type="password" name="passwd" id="passwd-bridge">
+                                                    <p class="help-block">Exemple : cisco123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Tenant</label>
+                                                    <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-bridge">
+                                                    <p class="help-block">Exemple : test123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Bridge Domain Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="bridge-domain" id="bridge-domain-bridge">
+                                                    <p class="help-block">Exemple : bridge-domain-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Private Network Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="private-network" id="private-network-bridge">
+                                                    <p class="help-block">Exemple : network-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Subnet</label>
+                                                    <input class="form-control" placeholder="Enter text" name="subnet" id="subnet-bridge">
+                                                    <p class="help-block">Exemple : subnet-test </p>
+                                                </div>
+
+                                                <input type="submit" class="btn btn-outline btn-primary" id="new-bridge" value="Submit" />
+                                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                            </form>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-new-bridge-domain">bash>></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                        <!-- /.row (nested) -->
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+                        </div>
+
+                        <div class="subbox" id="from-create-tenant">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Tenant
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-6">
+                                            <form role="form" name="new-tenant"  method="post">
+                                                <div class="form-group">
+                                                    <label>Name Host</label>
+                                                    <input class="form-control" placeholder="Enter text" name="host" id="host">
+                                                    <p class="help-block">IP address : 10.60.9.165</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Login</label>
+                                                    <input class="form-control" placeholder="Enter text" name="login" id="login">
+                                                    <p class="help-block">Exemple : admin</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd">
+                                                    <p class="help-block">Exemple : cisco123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Tenant</label>
+                                                    <input class="form-control" placeholder="Enter text" name="tenant" id="tenant">
+                                                    <p class="help-block">Exemple : test123</p>
+                                                </div>
+
+                                                <input type="submit" class="btn btn-outline btn-primary" id="new-tenant" value="Submit" />
+                                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                            </form>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-new-tenant">bash>></p>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- /.row (nested) -->
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#collapseTwo" data-parent="#accordion" data-toggle="collapse">Delete order</a></h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Delete</label>
+                                <select class="form-control">
+                                    <option onclick="showStuffNonesub()">None</option>
+                                    <option onclick="showStuffSub('from-delete-tenant')">Tenant</option>
+                                    <option onclick="showStuffSub('from-del-vlan')">Pool Vlans</option>
+                                    <option onclick="showStuffSub('from-del-physical-dom')">Physical Domain</option>
+                                    <option onclick="showStuffSub('from-del-aaep')">Attachable Access Entity Profile</option>
+                                    <option onclick="showStuffSub('from-del-subnet')">Subnet</option>
+                                </select>
+                            </div>
+
+                            <div class="subbox" id="from-delete-tenant">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Tenant
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-lg-6">
+                                                <form role="form" method="post" name="del-tenant">
+                                                    <div class="form-group">
+                                                        <label>Name Host</label>
+                                                        <input class="form-control" placeholder="Enter text" name="host" id="del-host-tenant">
+                                                        <p class="help-block">IP address : 10.60.9.165</p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Login</label>
+                                                        <input class="form-control" placeholder="Enter text" name="login" id="del-login-tenant">
+                                                        <p class="help-block">Exemple : admin</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="del-passwd-tenant">
+                                                        <p class="help-block">Exemple : cisco123</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Tenant</label>
+                                                        <input class="form-control" placeholder="Enter text" name="tenant" id="del-tenant-tenant">
+                                                        <p class="help-block">Exemple : Tenant existing</p>
+                                                    </div>
+
+                                                    <input type="submit" class="btn btn-outline btn-primary" id="del-tenant" value="Submit" />
+                                                    <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                            </form>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-del-tenant">bash>></p>
+                                            </div>
+                                        </div>
+                                            <!-- /.row (nested) -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+
+                            <div class="subbox" id="from-del-vlan">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Vlan Pool
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-lg-6">
+                                                <form role="form" method="post" name="del-pool-vlan">
+                                                    <div class="form-group">
+                                                        <label>Name Host</label>
+                                                        <input class="form-control" placeholder="Enter text" name="host" id="del-host-pool-vlan">
+                                                        <p class="help-block">IP address : 10.60.9.165</p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Login</label>
+                                                        <input class="form-control" placeholder="Enter text" name="login" id="del-login-pool-vlan">
+                                                        <p class="help-block">Exemple : admin</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="del-passwd-pool-vlan">
+                                                        <p class="help-block">Exemple : cisco123</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Vlan Name</label>
+                                                        <input class="form-control" placeholder="Enter text" name="vlan" id="del-vlan-pool-vlan">
+                                                        <p class="help-block">Exemple : Vlan existing</p>
+                                                    </div>
+
+                                                    <input type="submit" class="btn btn-outline btn-primary" id="del-pool-vlan" value="Submit" />
+                                                    <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                                </form>
+
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="well well-sm">
+                                                    <h4>Console</h4>
+                                                    <p id="resultat-del-pool-vlan">bash>></p>
+                                                </div>
+                                            </div>
+                                            <!-- /.row (nested) -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+
+                            <div class="subbox" id="from-del-physical-dom">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Physical Domain
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-lg-6">
+                                                <form role="form" method="post" action="ServerTest.php">
+                                                    <div class="form-group">
+                                                        <label>Name Host</label>
+                                                        <input class="form-control" placeholder="Enter text" name="host">
+                                                        <p class="help-block">IP address : 10.60.9.165</p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Login</label>
+                                                        <input class="form-control" placeholder="Enter text" name="login">
+                                                        <p class="help-block">Exemple : admin</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input class="form-control" placeholder="Enter text" name="passwd">
+                                                        <p class="help-block">Exemple : cisco123</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Physical Domain Name</label>
+                                                        <input class="form-control" placeholder="Enter text" name="tenant">
+                                                        <p class="help-block">Exemple : Physical Domain existing</p>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-outline btn-primary" >Submit</button>
+                                                    <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                                </form>
+                                            </div>
+                                            <!-- /.row (nested) -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+
+                            <div class="subbox" id="from-del-aaep">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Attachable Access Entity Profile
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-lg-6">
+                                                <form role="form" method="post" action="ServerTest.php">
+                                                    <div class="form-group">
+                                                        <label>Name Host</label>
+                                                        <input class="form-control" placeholder="Enter text" name="host">
+                                                        <p class="help-block">IP address : 10.60.9.165</p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Login</label>
+                                                        <input class="form-control" placeholder="Enter text" name="login">
+                                                        <p class="help-block">Exemple : admin</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input class="form-control" placeholder="Enter text" name="passwd">
+                                                        <p class="help-block">Exemple : cisco123</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Profile Name</label>
+                                                        <input class="form-control" placeholder="Enter text" name="tenant">
+                                                        <p class="help-block">Exemple : Profile existing</p>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-outline btn-primary" >Submit</button>
+                                                    <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                                </form>
+                                            </div>
+                                            <!-- /.row (nested) -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+
+                            <div class="subbox" id="from-del-subnet">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Subnet
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-lg-6">
+                                                <form role="form" method="post" action="ServerTest.php">
+                                                    <div class="form-group">
+                                                        <label>Name Host</label>
+                                                        <input class="form-control" placeholder="Enter text" name="host">
+                                                        <p class="help-block">IP address : 10.60.9.165</p>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Login</label>
+                                                        <input class="form-control" placeholder="Enter text" name="login">
+                                                        <p class="help-block">Exemple : admin</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input class="form-control" placeholder="Enter text" name="passwd">
+                                                        <p class="help-block">Exemple : cisco123</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Tenant Name</label>
+                                                        <input class="form-control" placeholder="Enter text" name="tenant">
+                                                        <p class="help-block">Exemple : Tenant existing</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Bridge Domain Name</label>
+                                                        <input class="form-control" placeholder="Enter text" name="tenant">
+                                                        <p class="help-block">Exemple : Bridge Domain existing</p>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Subnet IP</label>
+                                                        <input class="form-control" placeholder="Enter text" name="tenant">
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-outline btn-primary" >Submit</button>
+                                                    <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                                </form>
+                                            </div>
+                                            <!-- /.row (nested) -->
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                    <!-- /.panel -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title"><a href="#collapseThree" data-parent="#accordion" data-toggle="collapse">Get order</a></h4>
+            </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Delete</label>
+                            <select class="form-control">
+                                <option onclick="showStuffNonesub()">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="box" id="qvbn-configuration">
+    <div class="col-lg-12">
+        <h1 class="page-header">QvBN</h1>
+    </div>
+            <div class="panel-body">
+                <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <form role="form" method="post" name="create-instance">
+                        <div class="form-group">
+                            <label>Name Host(uml)</label>
+                            <input class="form-control" placeholder="Enter text" name="host">
+                            <p class="help-block">IP address : x.x.x.x</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Login</label>
+                            <input class="form-control" placeholder="Enter text" name="login">
+                            <p class="help-block">Exemple : root</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input class="form-control" placeholder="Enter text" name="passwd">
+                            <p class="help-block">Exemple : cisco</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>...</label>
+                            <input class="form-control" placeholder="Enter text" name="tenant">
+                            <p class="help-block">Exemple : ...</p>
+                        </div>
+
+                        <!--<button class="btn btn-outline btn-primary btn-lg btn-block" type="button">Start Instance</button>-->
+
+                        <div class="panel-body">
+                            <!-- Button trigger modal -->
+                            <!-- <button class="btn btn-outline btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Start Instance</button> -->
+                            <input type="submit" class="btn btn-outline btn-primary btn-lg btn-block" id="instance" value="Start Instance" data-toggle="modal" data-target="#myModal" />
+
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-info" style="width: 1%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" id="progress-bar">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                            <!-- Modal -->
+
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>You are about to instantiate a virtual machine. Which necessarily involves the use of resource.</p>
+                                            <p>Are you sure you want to run this instance ?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline btn-danger" data-dismiss="modal">Cancel</button>
+
+                                            <input type="submit" class="btn btn-outline btn-primary" id="confirm-instance" value="Confirm" data-dismiss="modal" name="confirm-instance"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.modal -->
+                        </div>
+
+                    </form>
+                </div>
+                    <div class="col-lg-6">
+                        <div class="well well-sm">
+                            <h4>Description</h4>
+                            <p>La biscuiterie nantaise - BN - est une fabrique de biscuits historiquement implantée à Nantes (aujourd'hui à Vertou). Longtemps entreprise à capital familial, puis adossée à des multinationales (General Mills à partir de 1969, PepsiCo en 1992 puis depuis 1998 à United Biscuits lui-même contrôlé par PAI et Blackstone) depuis fin 2006. Elle n'est aujourd'hui plus dirigée par les familles nantaises fondatrices Cossé et Lotz.La fabrique est connue pour avoir produit durant les deux guerre mondiales les fameux pains de guerre, le « hard bread », destiné à nourrir les soldats au front, puis les biscuits caséinés riches en calories et peu coûteux. Durant les périodes de rationnement, ils étaient distribués dans les écoles et aux prisonniers de guerre.La biscuiterie connut un essor commercial avec son Cas’ Croûte, puis un nouvel essor Choco BN dont le biscuit est désormais fourré au chocolat.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+
+
+        <!-- /.panel -->
+</div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="js/plugins/morris/raphael.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script>
+<script src="js/plugins/morris/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
