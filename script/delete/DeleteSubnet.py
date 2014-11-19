@@ -2,7 +2,7 @@ __author__ = 'Amorim'
 
 from cobra.model.fv import Subnet
 
-from tools.util import *
+from util import *
 
 
 key_args = [{'name': 'tenant', 'help': 'Tenant name'},
@@ -37,29 +37,16 @@ if __name__ == '__main__':
 
     # Try mode one: arguments from CLI
     try:
-        host_name, user_name, password, args = set_cli_argparse('Delete a Subnet.', key_args)
-        tenant = args.pop('tenant')
-        bridge_domain = args.pop('bridge_domain')
-        subnet = args.pop('subnet')
+        host_name= sys.argv[1]
+        user_name= sys.argv[2]
+        password=sys.argv[3]
+        tenant=sys.argv[4]
+        bridge_domain=sys.argv[5]
+        subnet=sys.argv[6]
 
     except SystemExit:
-
-        # Check if calling help page
-        if check_if_requesting_help(sys.argv):
-            sys.exit('Help Page')
-
-        try:
-            # Try mode two: load a config file
-            data, host_name, user_name, password = read_config_yaml_file(sys.argv[1])
-            tenant = data['tenant']
-            bridge_domain = data['bridge_domain']
-            subnet = data['subnet']
-        except (IOError, KeyError, TypeError, IndexError) as input_error:
-            # If both mode one and two fail, try mode three: wizard
-            if len(sys.argv)>1:
-                print input_error
-            host_name, user_name, password = input_login_info()
-            tenant, bridge_domain, subnet = input_key_args()
+        if len(sys.argv)>6:
+            print 'Invalid input arguments.'
 
     # Login to APIC
     modir = apic_login_cobra(host_name, user_name, password)

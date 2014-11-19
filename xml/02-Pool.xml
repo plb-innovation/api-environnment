@@ -1,0 +1,8 @@
+<polUni>
+   <infraInfra dn="uni/infra">
+      <fvnsVlanInstP allocMode="static" name="GiLan">
+         <fvnsEncapBlk from="vlan-90" to="vlan-92"/>
+      </fvnsVlanInstP>
+   </infraInfra>
+</polUni>
+    

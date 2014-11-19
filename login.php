@@ -1,3 +1,34 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Amorim
+ * Date: 17/11/2014
+ * Time: 19:04
+ */
+session_start();
+if (isset($_POST['submit']))
+{
+    $username=htmlentities(trim($_POST['login']));
+    $password=htmlentities(trim($_POST['password']));
+
+    if ($username && $password ){
+        //$password=md5($password);
+        $connect=mysql_connect('127.0.0.1','mamorim','cisco') or die('Error'.mysql_error());
+        mysql_select_db('API_ENVIRONMENT');
+
+        $reg=mysql_query("SELECT * FROM authentification WHERE login='$username' && password='$password'");
+        $rows=mysql_num_rows($reg);
+
+        if ($rows == 1) {
+            $_SESSION['username']=$username;
+            header("Location:index.php");
+
+        }else{ echo "Account not exist or bad password";}
+    }else{ echo "Veuillez saisir tous les champs";}
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +40,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Authentification</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,26 +57,39 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
 
-<body>
+<script>
+
+    $("#auth").click(function(e){
+        e.preventDefault();
+        $.post('login.php',
+            {
+                login : $("#login").val(),
+                password : $("#password").val()
+            },
+            function(data){
+                $("#result-auth").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+    });
+</script>
+
+<body style="background-image: url('bck_img1'); background-size: 100%; background-repeat: no-repeat;">
+
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form">
+            <div class="col-md-4 col-md-offset-4" style="margin-top: 200px;">
+                        <form role="form" method="post" name="auth">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="Login" name="login" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -56,11 +100,9 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <input name="submit" type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
                             </fieldset>
                         </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

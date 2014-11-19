@@ -5,7 +5,7 @@ from pprint import pprint
 
 import requests
 
-from tools.util import *
+from util import *
 
 
 def RecupVlansValuesJson(data) :

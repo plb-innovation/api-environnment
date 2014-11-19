@@ -2,7 +2,7 @@ __author__ = 'Amorim'
 
 from cobra.model.phys import DomP
 
-from tools.util import *
+from util import *
 
 DEFAULT_VLAN_POOL = ''
 
@@ -32,34 +32,19 @@ if __name__ == '__main__':
 
     # Try mode one: arguments from CLI
     try:
-        host_name, user_name, password, args = set_cli_argparse('Create Physical Domain.', key_args)
+        host_name= sys.argv[1]
+        user_name= sys.argv[2]
+        password=sys.argv[3]
+        physical_domain=sys.argv[4]
 
     except SystemExit:
 
-        # Check if calling help page
-        if check_if_requesting_help(sys.argv):
-            sys.exit('Help Page')
-
-        try:
-            # Try mode two: load a config file
-            data, host_name, user_name, password = read_config_yaml_file(sys.argv[1])
-            physical_domain = data['physical_domain']
-            optional_args = data['optional_args']
-        except (IOError, KeyError, TypeError, IndexError) as input_error:
-            # If both mode one and two fail, try mode three: wizard
-            if len(sys.argv)>1:
-                print input_error
-            host_name, user_name, password = input_login_info()
-            physical_domain = input_key_args()
-
-    else:
-        physical_domain = args.pop('physical_domain')
-        optional_args = args
+        if len(sys.argv)>4:
+            print 'Invalid input arguments.'
+            #host_name, user_name, password = input_login_info()
 
     # Login to APIC
     modir = apic_login_cobra(host_name, user_name, password)
-
     # Execute the main function
     delete_physical_domain(modir, physical_domain)
-
     modir.logout()

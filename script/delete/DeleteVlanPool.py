@@ -28,29 +28,15 @@ if __name__ == '__main__':
 
     # Try mode one: arguments from CLI
     try:
-        host_name, user_name, password, args = set_cli_argparse('Delete VLAN Pool.', key_args)
+        host_name= sys.argv[1]
+        user_name= sys.argv[2]
+        password=sys.argv[3]
+        vlan_name=sys.argv[4]
+        allocation_mode=sys.argv[5]
 
     except SystemExit:
-
-        # Check if calling help page
-        if check_if_requesting_help(sys.argv):
-            sys.exit('Help Page')
-
-        try:
-            # Try mode two: load a config file
-            data, host_name, user_name, password = read_config_yaml_file(sys.argv[1])
-            vlan_name = data['vlan_name']
-            allocation_mode = data['allocation_mode']
-        except (IOError, KeyError, TypeError, IndexError) as input_error:
-            # If both mode one and two fail, try mode three: wizard
-            if len(sys.argv)>1:
-                print input_error
-            host_name, user_name, password = input_login_info()
-            vlan_name, allocation_mode = input_key_args(from_delete_function=True)
-
-    else:
-        vlan_name = args.pop('vlan_name')
-        allocation_mode = args.pop('allocation_mode')
+        if len(sys.argv)>4:
+            print 'Invalid input arguments.'
 
     # Login to APIC
     modir = apic_login_cobra(host_name, user_name, password)

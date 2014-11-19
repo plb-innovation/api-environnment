@@ -20,7 +20,7 @@ if (isset($_POST['tenant']) AND isset($_POST['profile']) AND isset($_POST['epg']
     $vlan=$_POST['vlan'];
     $bridge=$_POST['bridge'];
 
-    exec("python /var/www/API-frontend/script/gen-xml/GenXmlappEPG.py $tenant $profile $epg $vlan,$bridge");
+    exec("python /var/www/API-frontend/script/gen-xml/GenXmlAppEPG.py $tenant $profile $epg $vlan $bridge");
 
     if ($_POST['host'] != null AND $_POST['login']!= null AND $_POST['password'] != null){
         session_start();
@@ -29,7 +29,7 @@ if (isset($_POST['tenant']) AND isset($_POST['profile']) AND isset($_POST['epg']
         $passwd=$_POST['password'];
 
         $_SESSION['resultat'] = $resultat;
-        exec("python /var/www/API-frontend/script/post/GenConfigPost.py $host $login $passwd xml /api/node/mo/.xml /var/www/API-frontend/xml/06-Application-Profile-EPG.xml 1 ");
+        exec("python /var/www/API-frontend/script/post/GenConfigPost.py $host $login $passwd xml /api/node/mo/.xml /var/www/API-frontend/xml/06-Application-Profile-EPG.xml 1");
         exec("python /var/www/API-frontend/script/post/PostRequest.py /var/www/API-frontend/config/request.cfg",$result);
         prettyPrint($result);
     } else {

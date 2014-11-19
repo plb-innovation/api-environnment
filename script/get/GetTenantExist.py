@@ -3,8 +3,7 @@ __author__ = 'Amorim'
 import sys
 
 from cobra.model.fv import Tenant
-
-from tools.util import *
+from util import *
 
 
 def check_if_tenant_exist(modir, tenant_name):
@@ -31,8 +30,15 @@ def input_log_info() :
     return config
 
 if __name__ == '__main__':
+    config={}
+    try:
+        config['host'] = sys.argv[1]
+        config['name'] = sys.argv[2]
+        config['passwd'] = sys.argv[3]
+        config['tenant'] = sys.argv[4]
+    except Exception as e:
+        config=input_log_info()
 
-    config=input_log_info()
     modir=apic_login_cobra(config['host'], config['name'], config['passwd'])
     result=check_if_tenant_exist(modir, config['tenant'])
 

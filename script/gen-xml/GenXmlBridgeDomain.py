@@ -5,8 +5,7 @@ import sys
 
 def WriteXmlPhysicalDomain(config) :
     FileXml=open('/var/www/API-frontend/xml/05-Bridge-Domain.xml','w+')
-    TextBD ='''
-<polUni>
+    TextBD ='''<polUni>
 	<fvTenant name="'''+config['tenant']+'''">
 		<fvCtx name="'''+config['Namectx']+'''"/>
 		<fvBD arpFlood="yes" name="'''+config['bridge']+'''">

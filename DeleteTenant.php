@@ -7,9 +7,10 @@
  */
 
 function prettyPrint($a) {
-    echo "<pre>";
-    print_r($a);
-    echo "</pre>";
+    print("<pre>".print_r(str_replace("<","&lt;",str_replace(">","&gt;",$a)),true)."</pre>");
+    //foreach($a as $d){
+    //    echo $d."</br>";
+    //}
 }
 
 if (isset($_POST['tenant'])) {

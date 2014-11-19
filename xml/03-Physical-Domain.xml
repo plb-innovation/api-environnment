@@ -1,0 +1,6 @@
+
+<polUni>
+      <physDomP name="GiLan">
+         <infraRsVlanNs tDn="uni/infra/vlanns-QvPC_Pool-static"/>
+      </physDomP>
+</polUni>

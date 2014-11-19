@@ -19,6 +19,7 @@ def delete_tenant(modir, tenant_name):
     commit_change(modir, fv_tenant)
 
 
+
 if __name__ == '__main__':
 
     key_args = [{'name': 'tenant', 'help': 'Tenant name'}]

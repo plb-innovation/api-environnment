@@ -5,8 +5,7 @@ import sys
 def  WriteXmlAppEPG(config):
 
     FileXml=open("/var/www/API-frontend/xml/06-Application-Profile-EPG.xml","w+")
-    TextBD ='''
-<polUni>
+    TextBD ='''<polUni>
 	<fvTenant name="'''+config['tenant']+'''">
         <fvAp name="'''+config['app']+'''">
 			<fvAEPg name="'''+config['epg']+'''">

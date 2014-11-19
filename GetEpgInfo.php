@@ -2,21 +2,21 @@
 /**
  * Created by PhpStorm.
  * User: Amorim
- * Date: 24/10/2014
- * Time: 19:25
+ * Date: 11/11/2014
+ * Time: 12:28
  */
 
 function prettyPrint($a) {
-    print("<pre>".print_r(str_replace("<","&lt;",str_replace(">","&gt;",$a)),true)."</pre>");
-    //foreach($a as $d){
-    //    echo $d."</br>";
-    //}
+    print("<pre>".print_r($a,true)."</pre>");
+
+    //   foreach($a as $d){
+    //           echo $d."</br>";
+    //       }
 }
 
-if (isset($_POST['vlan']) AND isset($_POST['mode']) ) {
+if (isset($_POST['tenant'])) {
     $result=array();
-    $vlan=$_POST['vlan'];
-    $mode=$_POST['mode'];
+    $tenant=$_POST['tenant'];
 
     if ($_POST['host'] != null AND $_POST['login']!= null AND $_POST['password'] != null){
         session_start();
@@ -24,7 +24,7 @@ if (isset($_POST['vlan']) AND isset($_POST['mode']) ) {
         $login=$_POST['login'];
         $passwd=$_POST['password'];
         $_SESSION['resultat'] = $resultat;
-        exec("python /var/www/API-frontend/script/delete/DeleteVlanPool.py $host $login $passwd $vlan $mode",$result);
+        exec("python /var/www/API-frontend/script/get/GetEpgInfo.py $host $login $passwd $tenant",$result);
         prettyPrint($result);
     } else {
         echo "Insert required information";
@@ -44,13 +44,10 @@ if (isset($_POST['vlan']) AND isset($_POST['mode']) ) {
 
 }else{
 
-    if ($_POST['vlan'] == null){
-        echo "Vlan name required";
+    if ($_POST['tenant'] == null){
+        echo "Tenant name required";
     }
 
-    if ($_POST['mode'] == null){
-        echo "Mode required";
-    }
 
 
 }

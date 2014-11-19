@@ -2,7 +2,7 @@ __author__ = 'Amorim'
 
 from cobra.model.infra import AttEntityP
 
-from tools.util import *
+from util import *
 
 
 DEFAULT_ENABLE_INFRASTRUCTURE_VLAN = False
@@ -33,32 +33,18 @@ if __name__ == '__main__':
 
     # Try mode one: arguments from CLI
     try:
-        host_name, user_name, password, args = set_cli_argparse('Delete Attachable Access Entity Profile.', key_args)
+        host_name= sys.argv[1]
+        user_name= sys.argv[2]
+        password=sys.argv[3]
+        profile_name=sys.argv[4]
 
     except SystemExit:
-
-        # Check if calling help page
-        if check_if_requesting_help(sys.argv):
-            sys.exit('Help Page')
-
-        try:
-            # Try mode two: load a config file
-            data, host_name, user_name, password = read_config_yaml_file(sys.argv[1])
-            profile_name = data['profile_name']
-        except (IOError, KeyError, TypeError, IndexError) as input_error:
-            # If both mode one and two fail, try mode three: wizard
-            if len(sys.argv)>1:
-                print input_error
-            host_name, user_name, password = input_login_info()
-            profile_name = input_key_args()
-
-    else:
-        profile_name = args.pop('profile_name')
+        if len(sys.argv)>4:
+            print 'Invalid input arguments.'
 
     # Login to APIC
     modir = apic_login_cobra(host_name, user_name, password)
 
     # Execute the main function
     delete_attachable_access_entity_profile(modir, profile_name)
-
     modir.logout()

@@ -6,7 +6,14 @@ import xml.dom.minidom
 import sys
 import time
 import requests
+from pprint import pprint
 from util import *
+
+
+def unescape(s):
+    s = s.replace("<","&lt;")
+    s = s.replace(">","&gt;")
+    return s
 
 
 def post_type_file(package,url,file, cookies) :
@@ -18,24 +25,23 @@ def post_type_file(package,url,file, cookies) :
     status = r.status_code
 
     print '+++ RESPONSE (%s) +++' % file
-    print result.toprettyxml()
+    pprint (convert(result.toprettyxml()))
     print '------------------------------------------------'
     print status
 
 def post_type_xml(package, url,file, config, cookies) :
 
     data = package.read()
-    print '+++ REQUEST (%s) +++' % file
-    print data
-    print '------------------------------------------------'
 
+    print '+++ REQUEST (%s) +++' % file
+    print convert(unescape(data))
+    print '------------------------------------------------'
     url = 'https://%s/api/node/mo/.xml' % config['host']
-    r = requests.post(url,cookies=cookies,data=data)
+    r = requests.post(url,cookies=cookies,data=data, verify=False)
     result = xml.dom.minidom.parseString( r.text )
     status = r.status_code
-
     print '+++ RESPONSE (%s) +++' % file
-    print result.toprettyxml()
+    print convert((unescape(result.toprettyxml())))
     print '------------------------------------------------'
     print status
 

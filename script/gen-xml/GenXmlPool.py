@@ -5,8 +5,7 @@ import sys
 def WriteXmlPool(config) :
     FileXml=open("/var/www/API-frontend/xml/02-Pool.xml","w+")
 
-    TextEdit='''
-<polUni>
+    TextEdit='''<polUni>
    <infraInfra dn="uni/infra">
       <fvnsVlanInstP allocMode="'''+config['alloMode']+'''" name="'''+config['name']+'''">
          <fvnsEncapBlk from="'''+config['From']+'''" to="'''+config['To']+'''"/>

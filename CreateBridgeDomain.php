@@ -14,6 +14,11 @@ function prettyPrint($a) {
 
 if (isset($_POST['tenant']) AND isset($_POST['bridge']) AND isset($_POST['private']) AND isset($_POST['subnet'])) {
     $result=array();
+    $tenant=$_POST['tenant'];
+    $bridge=$_POST['bridge'];
+    $private=$_POST['private'];
+    $subnet=$_POST['subnet'];
+
         exec("python /var/www/API-frontend/script/gen-xml/GenXmlBridgeDomain.py $tenant $bridge $private $subnet");
 
         if ($_POST['host'] != null AND $_POST['login']!= null AND $_POST['password'] != null){
@@ -21,15 +26,12 @@ if (isset($_POST['tenant']) AND isset($_POST['bridge']) AND isset($_POST['privat
             $host=$_POST['host'];
             $login=$_POST['login'];
             $passwd=$_POST['password'];
-            $tenant=$_POST['tenant'];
-            $bridge=$_POST['bridge'];
-            $private=$_POST['private'];
-            $subnet=$_POST['subnet'];
 
             $_SESSION['resultat'] = $resultat;
-            exec("python /var/www/API-frontend/script/post/GenConfigPost.py $host $login $passwd xml /api/node/mo/.xml /var/www/API-frontend/xml/05-Bridge-Domain-test.xml 1 ");
+            exec("python /var/www/API-frontend/script/post/GenConfigPost.py $host $login $passwd xml /api/node/mo/.xml /var/www/API-frontend/xml/05-Bridge-Domain.xml 1 ");
             exec("python /var/www/API-frontend/script/post/PostRequest.py /var/www/API-frontend/config/request.cfg",$result);
             prettyPrint($result);
+
         } else {
             echo "Insert required information";
         }

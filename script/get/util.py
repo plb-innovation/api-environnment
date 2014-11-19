@@ -84,7 +84,7 @@ def print_query_xml(xml_file, pretty_print=True):
 
 def apic_login_cobra(hostname, username, password):
     """Login to APIC"""
-    lsess = LoginSession('http://'+hostname, username, password)
+    lsess = LoginSession('https://'+hostname, username, password)
     modir = MoDirectory(lsess)
     modir.login()
     return modir
@@ -103,7 +103,7 @@ def LoginApicRequest(config):
     i=0
     cpt=0
     while( status != 200 ):
-        url = 'http://%s/api/aaaLogin.json' % config['host']
+        url = 'https://%s/api/aaaLogin.json' % config['host']
         while(1):
             try:
                 r = requests.post( url, data=json.dumps(auth), timeout=1, verify=False )
@@ -133,7 +133,7 @@ def timeout(cpt, time, output) :
         sys.exit(0)
 
 def FailureRequest(status) :
-    print(status)
+    #print(status)
     if status==201 :
         print("error 201 -> Created : An asynchronous task has been completed, and the object has been created.")
 

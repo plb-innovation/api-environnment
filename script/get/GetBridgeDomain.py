@@ -5,34 +5,36 @@ from pprint import pprint
 
 import requests
 
-from tools.util import *
+from util import *
 
 
 def RecupVlansValuesJson(data) :
-    result=[]
+    result= [[]]
     data=convert(data)
     imdata=data['imdata']
-    for t in imdata :
-        Stab=t['fvBD']
-        for u in Stab :
-            result.append(Stab['attributes']['name'])
-
-    result.sort()
-    return result
-
+    cpt=0
+    #for t in imdata :
+    #    cpt=cpt+1
+    #    Stab=t['fvBD']
+    #    for u in Stab :
+            #result.append(Stab['attributes']['name'])
+            #result.append(Stab['attributes']['mac'])
+    #result.sort()
+    #return result
+    return 0
 
 def GetVlanName(config, cookies):
     url='https://'+config['host']+'/api/node/mo/uni/tn-'+config['tenant']+'.json?query-target=children&target-subtree-class=fvBD'
-    print '++++++++ REQUEST GET ++++++++'
-    print url
-    print '------------------------------'
+    #print '++++++++ REQUEST GET ++++++++'
+    #print url
+    #print '------------------------------'
 
     r = requests.get(url,cookies=cookies, verify=False)
-    print r.status_code
+    #print r.status_code
 
-    print '++++++++ RESPONSE GET ++++++++'
+   # print '++++++++ RESPONSE GET ++++++++'
     pprint (convert(r.json()))
-    print '-------------------------------'
+    #print '-------------------------------'
 
     return RecupVlansValuesJson(r.json())
 

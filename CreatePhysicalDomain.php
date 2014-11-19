@@ -12,10 +12,11 @@ function prettyPrint($a) {
     echo "</pre>";
 }
 
-if (isset($_POST['physical'])) {
+if (isset($_POST['physical']) AND isset($_POST['pool'])) {
     $result=array();
     $physical=$_POST['physical'];
-    exec("python /var/www/API-frontend/script/gen-xml/GenXmlPhysicalDomain.py $physical ");
+    $pool=$_POST['pool'];
+    exec("python /var/www/API-frontend/script/gen-xml/GenXmlPhysicalDomain.py $physical $pool");
 
     if ($_POST['host'] != null AND $_POST['login']!= null AND $_POST['password'] != null){
         session_start();
@@ -33,6 +34,10 @@ if (isset($_POST['physical'])) {
 }else{
 
     if ($_POST['physical'] == null){
+        echo "Physical Domain name required";
+    }
+
+    if ($_POST['pool'] == null){
         echo "Physical Domain name required";
     }
 }

@@ -79,9 +79,6 @@ def check_if_requesting_help(args, opt_args=None):
 def get_flag_names(args, opt_args=None):
     return len(args) > 1 and args[1] in get_flag_names(opt_args)
 
-def print_query_xml(xml_file, pretty_print=True):
-    print toXMLStr(xml_file, prettyPrint=pretty_print)
-
 def apic_login_cobra(hostname, username, password):
     """Login to APIC"""
     lsess = LoginSession('http://'+hostname, username, password)
