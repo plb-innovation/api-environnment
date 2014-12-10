@@ -1,8 +1,8 @@
 <polUni>
-	<fvTenant name="GiLan">
-		<fvCtx name="GiLan"/>
-		<fvBD arpFlood="yes" name="BD-113">
-			<fvRsCtx tnFvCtxName="GiLan"/>
+	<fvTenant name="Gilan">
+		<fvCtx name="Gilan"/>
+		<fvBD arpFlood="yes" name="bd-113">
+			<fvRsCtx tnFvCtxName="Gilan"/>
 			<fvSubnet ip="192.168.91.1/24"/>
 		</fvBD>
 	</fvTenant>

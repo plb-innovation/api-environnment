@@ -1,7 +1,56 @@
 <polUni>
 	<infraInfra>
 		<!-- Attachable Access Entity Profile Creation -->
-		<infraAttEntityP name="GiLan">
+		<infraAttEntityP name="Gilan">
+		    <infraRsDomP tDn="uni/phys-Gilan"/>
 		</infraAttEntityP>
-	</infraInfra>
+    <!-- Creation of a new Interface Policy Group linked to the new Attachable Access Entity Profile -->
+		<infraFuncP>
+			<infraAccPortGrp name="Gilan">
+				<infraRsAttEntP tDn="uni/infra/attentp-Gilan"/>
+			</infraAccPortGrp>
+		</infraFuncP>
+        <!-- Creation of a new Interface Profile for Leaf1 with use of new Policy Group on port 1/3 -->
+		<infraAccPortP name="Leaf1-Interface_Profile">
+			<infraHPortS name="Gilan" type="range">
+				<infraPortBlk fromCard="1" fromPort="3" name="block0" toPort="3"/>
+				<infraRsAccBaseGrp tDn="uni/infra/funcprof/accportgrp-Gilan/"/>
+			</infraHPortS>
+		</infraAccPortP>
+        <!-- Create a Switch Profile for Leaf1 and attach associated interface profile -->
+		<infraNodeP name="Leaf1-Switch_Profile">
+			<infraLeafS name="Leaf1" type="range">
+				<infraNodeBlk from_="101" name="Leaf" to_="101"/>
+			</infraLeafS>
+			<infraRsAccPortP tDn="uni/infra/accportprof-Leaf1-Interface_Profile"/>
+		</infraNodeP>
+        <!-- Creation of a new Interface Profile for Leaf2 with use of new Policy Group on port 1/3 -->
+		<infraAccPortP name="Leaf2-Interface_Profile">
+			<infraHPortS name="Gilan" type="range">
+				<infraPortBlk fromCard="1" fromPort="3" name="block0" toPort="3"/>
+				<infraRsAccBaseGrp tDn="uni/infra/funcprof/accportgrp-Gilan/"/>
+			</infraHPortS>
+		</infraAccPortP>
+        <!-- Create a Switch Profile for Leaf2 and attach associated interface profile -->
+		<infraNodeP name="Leaf2-Switch_Profile">
+			<infraLeafS name="Leaf2" type="range">
+				<infraNodeBlk from_="102" name="Leaf" to_="102"/>
+			</infraLeafS>
+			<infraRsAccPortP tDn="uni/infra/accportprof-Leaf2-Interface_Profile"/>
+		</infraNodeP>
+        <!-- Creation of a new Interface Profile for Leaf3 with use of new Policy Group on port 1/3 -->
+		<infraAccPortP name="Leaf3-Interface_Profile">
+			<infraHPortS name="Gilan" type="range">
+				<infraPortBlk fromCard="1" fromPort="3" name="block0" toPort="3"/>
+				<infraRsAccBaseGrp tDn="uni/infra/funcprof/accportgrp-Gilan/"/>
+			</infraHPortS>
+		</infraAccPortP>
+        <!-- Create a Switch Profile for Leaf3 and attach associated interface profile -->
+		<infraNodeP name="Leaf3-Switch_Profile">
+			<infraLeafS name="Leaf3" type="range">
+				<infraNodeBlk from_="103" name="Leaf" to_="103"/>
+			</infraLeafS>
+			<infraRsAccPortP tDn="uni/infra/accportprof-Leaf3-Interface_Profile"/>
+		</infraNodeP>
+    </infraInfra>
 </polUni>

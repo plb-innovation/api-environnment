@@ -5,16 +5,29 @@ import sys
 
 def WriteXmlPhysicalDomain(config) :
     FileXml=open('/var/www/API-frontend/xml/05-Bridge-Domain.xml','w+')
-    TextBD ='''<polUni>
+
+    if config['subnet']=="":
+        TextBD ='''<polUni>
 	<fvTenant name="'''+config['tenant']+'''">
 		<fvCtx name="'''+config['Namectx']+'''"/>
-		<fvBD arpFlood="yes" name="'''+config['bridge']+'''">
+		<fvBD arpFlood="yes" name="'''+config['bridge']+'''" unicastRoute="yes" unkMacUcastAct="flood" unkMcastAct="flood">
 			<fvRsCtx tnFvCtxName="'''+config['Namectx']+'''"/>
-			<fvSubnet ip="'''+config['subnet']+'''"/>
 		</fvBD>
 	</fvTenant>
 </polUni>
 '''
+    else :
+           TextBD ='''<polUni>
+	<fvTenant name="'''+config['tenant']+'''">
+		<fvCtx name="'''+config['Namectx']+'''"/>
+		<fvBD arpFlood="yes" name="'''+config['bridge']+'''" unicastRoute="yes" unkMacUcastAct="flood" unkMcastAct="flood">
+			<fvRsCtx tnFvCtxName="'''+config['Namectx']+'''"/>
+		    <fvSubnet ip="'''+config['subnet']+'''"/>
+		</fvBD>
+	</fvTenant>
+</polUni>
+'''
+
     FileXml.write(TextBD)
     FileXml.close()
 
@@ -37,9 +50,14 @@ if __name__ == '__main__':
         config['tenant'] = sys.argv[1]
         config['bridge'] = sys.argv[2]
         config['Namectx'] = sys.argv[3]
-        config['subnet'] = sys.argv[4]
-
+        print len(sys.argv)
+        if  (len(sys.argv)== 5):
+            config['subnet'] = sys.argv[4]
+        else :
+             config['subnet'] =""
     except Exception as e:
         print str(e)
-        config=input_info()
+        input_info()
+
+
     WriteXmlPhysicalDomain(config)

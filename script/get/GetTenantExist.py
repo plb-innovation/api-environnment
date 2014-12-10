@@ -38,7 +38,7 @@ if __name__ == '__main__':
         config['tenant'] = sys.argv[4]
     except Exception as e:
         config=input_log_info()
-
+        
     modir=apic_login_cobra(config['host'], config['name'], config['passwd'])
     result=check_if_tenant_exist(modir, config['tenant'])
 

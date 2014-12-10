@@ -1,0 +1,24 @@
+<polUni>
+	<fvTenant name="tenant-test">
+		<fvCtx name="pn-test"/>
+		<fvBD arpFlood="yes" name="bd-110 ">
+			<fvRsCtx tnFvCtxName="pn-test"/>
+			<fvSubnet ip="192.168.90.1/24"/>
+		</fvBD>
+		<fvCtx name="pn-test"/>
+		<fvBD arpFlood="yes" name="bd-111 ">
+			<fvRsCtx tnFvCtxName="pn-test"/>
+			<fvSubnet ip="192.168.90.1/24"/>
+		</fvBD>
+		<fvCtx name="pn-test"/>
+		<fvBD arpFlood="yes" name="bd-112 ">
+			<fvRsCtx tnFvCtxName="pn-test"/>
+			<fvSubnet ip="192.168.90.1/24"/>
+		</fvBD>
+		<fvCtx name="pn-test"/>
+		<fvBD arpFlood="yes" name="bd-113 ">
+			<fvRsCtx tnFvCtxName="pn-test"/>
+			<fvSubnet ip="192.168.90.1/24"/>
+		</fvBD>
+    </fvTenant>
+</polUni>

@@ -69,8 +69,8 @@ if (isset($_POST['submit']))
 
 </head>
 
-<body style="background-image: url('bck_img1'); background-size: 100%; background-repeat: no-repeat;">
-
+<body style="background-image: url('bck_img1'); background-repeat: no-repeat;background-position: center top; border: medium none;">
+<img style="width: 237px; float: right; height: 158px;" alt="Mountain View" src="ciscoLogo.png">
 <script>
 
     $("#from-register").click(function(e){

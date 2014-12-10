@@ -25,7 +25,7 @@ if($_SESSION['username']){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cisco Paris Lab Network API Environment</title>
+    <title>Cisco Paris Lab </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if($_SESSION['username']){
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
-    <!--[if lt IE 9]>apt-get install python-flask
+    <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -74,22 +74,31 @@ if($_SESSION['username']){
 <ul class="nav navbar-top-links navbar-right">
 
 <!-- /.dropdown -->
-<li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-    </a>
-    <ul class="dropdown-menu dropdown-user">
-        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-        </li>
-        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-        </li>
-        <li class="divider"></li>
-        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-        </li>
-    </ul>
-    <!-- /.dropdown-user -->
-</li>
+    <li class="dropdown">
+        <p><?php echo "Welcome, ".$_SESSION['username'];?></p>
+    </li>
+
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+
+            <li class="divider"></li>
+            <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+        </ul>
+        <!-- /.dropdown-user -->
+    </li>
 <!-- /.dropdown -->
+    <li class="dropdown">
+        <img src="ciscoLogo.png" alt="Mountain View" style="width:67px;;height:0%;">
+    </li>
+
 </ul>
 <!-- /.navbar-top-links -->
 
@@ -111,22 +120,14 @@ if($_SESSION['username']){
                 <a  href="index.php" ><i class="fa fa-dashboard fa-fw"></i> Dashboard<span class="fa arrow"></span></a>
             </li>
             <li>
-                <a onclick="showStuff('aci-configuration')"><i class="fa fa-bar-chart-o fa-fw"></i>  ACI<span class="fa arrow"></span></a>
+                <a onclick="showStuff('aci-configuration')"><i class="fa fa-bar-chart-o fa-fw" id="menu-aci"></i>  ACI<span class="fa arrow"></span></a>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a onclick="showStuff('qvbn-configuration')"><i class="fa fa-bar-chart-o fa-fw"></i>  QvBN<span class="fa arrow"></span></a>
+                <a onclick="showStuff('qvbn-configuration')"><i class="fa fa-bar-chart-o fa-fw" id="menu-qvbn"></i>  QvBN<span class="fa arrow"></span></a>
                 <!-- /.nav-second-level -->
             </li>
 
-            <li>
-                <a href="index.php"><i class="fa fa-bar-chart-o fa-fw"></i> CSR<span class="fa arrow"></span></a>
-                <!-- /.nav-second-level -->
-            </li>
-            <li>
-                <a href="index.php"><i class="fa fa-bar-chart-o fa-fw"></i> UCS<span class="fa arrow"></span></a>
-                <!-- /.nav-second-level -->
-            </li>
 
         </ul>
     </div>
@@ -140,36 +141,7 @@ if($_SESSION['username']){
 <!-- /.row -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
 
-    function WindowsInit() {
-        $('.box').hide();
-        $('.subbox').hide();
-        $('#dashboard').show();
-        $('div[name=dataTablesGetBridge]').hide();
-    }
-
-    function showStuff(id) {
-        $('.box').hide();
-        $('#'+id).show();
-    }
-
-    function showStuffSub(id) {
-        $('.subbox').hide();
-        $('#'+id).show();
-    }
-
-    function showStuffNonesub() {
-        $('.subbox').hide();
-    }
-
-    function traiterSubmit(f){
-        if (f.host.value != null){
-            alert("yes");
-
-        }
-    }
-</script>
 
 <div class="box" id="dashboard">
     <div class="col-lg-12">
@@ -178,11 +150,11 @@ if($_SESSION['username']){
 
     <div class="col-lg-12" >
         <div class="well well-sm">
-            <p>The management interface APIs has been developed by the Innovation EPN team . They include a set of application programming interfaces in order to facilitate their use. They are available for another use and can be integrated into an application.</p>
+            <p>The management interface APIs has been developed by the Innovation EPN team . They include a set of application programming interfaces in order to facilitate their use. They are available for another use and can be integrated into an application. You will find the APIs for the ACI and QvBN. These APIs were developed and built on this site. You can use some or all of the APIs of the site. Do not use abusive. These actions need heavy resource allocations.</p>
            </div>
     </div>
 
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-4 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -205,7 +177,7 @@ if($_SESSION['username']){
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-4 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
@@ -228,58 +200,111 @@ if($_SESSION['username']){
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
             <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-tasks fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">CSR</div>
-                        <div>Configuration</div>
-                    </div>
-                </div>
+                Usage
             </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="morris-bar-chart-element"></div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+
+    <div class="col-lg-6">
+        <div class="chat-panel panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-comments fa-fw"></i>Last actions
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <ul class="chat">
+                    <?php
+                    $connect=mysql_connect('127.0.0.1','mamorim','cisco') or die('Error'.mysql_error());
+                    mysql_select_db('API_ENVIRONMENT');
+                    $reg=mysql_query("select * from actions ORDER BY date_action DESC limit 30");
+                    $i=0;
+                    while($rows = mysql_fetch_array($reg)){
+                        $i=$i+1;
+                        $Dquote='"';
+                        $description_action=$rows['description_action'];
+                        $date_action=$rows['date_action'];
+                        $name_action=$rows['name_action'];
+                        echo "<li class=$Dquote left clearfix $Dquote >";
+                        echo "<span class=$Dquote chat-img pull-left $Dquote ><img src= $Dquote http://placehold.it/50/55C1E7/fff $Dquote alt=$Dquote User Avatar $Dquote class=$Dquote img-circle $Dquote /></span>";
+                        echo "<div class=$Dquote chat-body clearfix $Dquote ><div class=$Dquote header $Dquote > <strong class=$Dquote primary-font $Dquote >$name_action</strong>";
+                        echo "<small class=$Dquote pull-right text-muted $Dquote ><i class=$Dquote fa fa-clock-o fa-fw $Dquote></i>$date_action</small></div>";
+                        echo "<p> $description_action </p></div></li>";
+                    }
+
+                    ?>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-tasks fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">UCS</div>
-                        <div>Configuration</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
+
+    <div class="col-lg-12">
+        <div class="well well-sm">
+            <h4>Usage Information</h4>
+            <p> A version of the functional code and if one wishes to make personal changes , we can download the code here.</p>
+            <a class="btn btn-default btn-lg btn-block" href="https://github.com/plb-innovation/" target="_blank">View Source Code Documentation</a>
         </div>
     </div>
-
 </div>
-
 <script>
 
-$(document).ready(function(){
+function WindowsInit() {
+    $('.box').hide();
+    $('.subbox').hide();
 
+    $('#load-long').hide();
+    $('#load-speed').hide();
+    $('#start-demo-long-ok').hide();
+    $('#comment-demo-long-succed').hide();
+
+    $('#start-demo-speed-ok').hide();
+    $('#comment-demo-speed-succed').hide();
+
+    $('#dashboard').show();
+    $('#progression-bar-demo-long').hide();
+    $('#progression-bar-demo-speed').hide();
+    $('div[name=dataTablesGetBridge]').hide();
+}
+
+function showStuff(id) {
+    $('.box').hide();
+    $('#'+id).show();
+    
+}
+
+function showStuffSub(id) {
+    $('.subbox').hide();
+    $('#'+id).show();
+}
+
+function showStuffNonesub() {
+    $('.subbox').hide();
+}
+
+function traiterSubmit(f){
+    if (f.host.value != null){
+        alert("yes");
+
+    }
+}
+
+function sleep(milliSeconds){
+    var startTime = new Date().getTime(); // get the current time
+    while (new Date().getTime() < startTime + milliSeconds); // hog cpu
+}
+
+
+
+$(document).ready(function(){
     WindowsInit();
     $('#dataTables-get-bridge').dataTable();
 
@@ -289,9 +314,9 @@ $(document).ready(function(){
         $.post('CreateTenant.php',
             {
                 // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
-                host : $("#host").val(),
-                login : $("#login").val(),
-                password : $("#passwd").val(),   
+                host : $("#host-default").val(),
+                login : $("#login-default").val(),
+                password : $("#passwd-default").val(),   
                 tenant : $("#tenant").val()
             },
             function(data){
@@ -300,6 +325,9 @@ $(document).ready(function(){
             },
             'text'
         );
+
+        AddActions("ACI", "Tenant "+$("#tenant").val()+" has been created by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-bridge").click(function(e){
@@ -307,9 +335,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('CreateBridgeDomain.php',
                 {
-                    host : $("#host-bridge").val(),
-                    login : $("#login-bridge").val(),
-                    password : $("#passwd-bridge").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     tenant : $("#tenant-bridge").val(),
                     bridge : $("#bridge-domain-bridge").val(),
                     private : $("#private-network-bridge").val(),
@@ -321,6 +349,9 @@ $(document).ready(function(){
                 },
                 'text'
         );
+
+        AddActions("ACI", "Bridge "+$("#bridge-domain-bridge").val()+" has been created by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-physical-domain").click(function(e){
@@ -328,9 +359,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('CreatePhysicalDomain.php',
                 {
-                    host : $("#host-physical").val(),
-                    login : $("#login-physical").val(),
-                    password : $("#passwd-physical").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     physical : $("#physical-domain-physical").val(),
                     pool : $("#vlan-pool-physical").val()
                 },
@@ -340,6 +371,9 @@ $(document).ready(function(){
                 },
                 'text'
         );
+
+        AddActions("ACI", "Physical Domain "+$("#physical-domain-physical").val()+" has been created by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-pool-vlan").click(function(e){
@@ -347,9 +381,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('CreatePoolVlans.php',
                 {
-                    host : $("#host-pool-vlan").val(),
-                    login : $("#login-pool-vlan").val(),
-                    password : $("#passwd-pool-vlan").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     tenant : $("#tenant-pool-vlan").val(),
                     mode : $("#mode-pool-vlan").val(),
                     vlan : $("#vlan-pool-vlan").val(),
@@ -362,17 +396,19 @@ $(document).ready(function(){
                 },
                 'text'
         );
-    });
 
+        AddActions("ACI", "Pool Vlans "+$("#vlan-pool-vlan").val()+" has been created by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
+    });
 
     $("#new-epg").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
         $.post('CreateEPG.php',
                 {
-                    host : $("#host-epg").val(),
-                    login : $("#login-epg").val(),
-                    password : $("#passwd-epg").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     tenant : $("#tenant-epg").val(),
                     profile : $("#profile-epg").val(),
                     epg : $("#epg-epg").val(),
@@ -382,10 +418,12 @@ $(document).ready(function(){
                 function(data){
                     $("#resultat-new-epg").html("<p>"+data+"</p>");
 
-                    
                 },
                 'text'
         );
+
+        AddActions("ACI", "EPG "+$("#epg-epg").val()+" has been created by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-aaep").click(function(e){
@@ -393,9 +431,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('CreateAttachableAccessEntityProfile.php',
             {
-                host : $("#host-aaep").val(),
-                login : $("#login-aaep").val(),
-                password : $("#passwd-aaep").val(),
+                host : $("#host-default").val(),
+                login : $("#login-default").val(),
+                password : $("#passwd-default").val(),
                 aaep : $("#aaep-aaep").val(),
                 physical : $("#physical-aaep").val(),
                 groupPolicy : $("#group-policy-aaep").val(),
@@ -416,6 +454,9 @@ $(document).ready(function(){
             },
             'text'
         );
+
+        AddActions("ACI", "AAEP "+$("#aaep-aaep").val()+" has been created by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-tenant").click(function(e){
@@ -423,9 +464,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('DeleteTenant.php',
                 {
-                    host : $("#del-host-tenant").val(),
-                    login : $("#del-login-tenant").val(),
-                    password : $("#del-passwd-tenant").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     tenant : $("#del-tenant-tenant").val()
                 },
                 function(data){
@@ -434,6 +475,9 @@ $(document).ready(function(){
                 },
                 'text'
         );
+
+        AddActions("ACI", "Tenant "+$("#del-tenant-tenant").val()+" has been deleted by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-pool-vlan").click(function(e){
@@ -441,9 +485,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('DeletePoolVlan.php',
                 {
-                    host : $("#del-host-pool-vlan").val(),
-                    login : $("#del-login-pool-vlan").val(),
-                    password : $("#del-passwd-pool-vlan").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     vlan : $("#del-vlan-pool-vlan").val(),
                     mode : $("#del-mode-pool-vlan").val()
                 },
@@ -453,6 +497,9 @@ $(document).ready(function(){
                 },
                 'text'
         );
+
+        AddActions("ACI", "Pool Vlan "+$("#del-vlan-pool-vlan").val()+" has been deleted by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-physical-domain").click(function(e){
@@ -460,9 +507,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('DeletePhysicalDomain.php',
                 {
-                    host : $("#del-host-physical-domain").val(),
-                    login : $("#del-login-physical-domain").val(),
-                    password : $("#del-passwd-physical-domain").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     physical : $("#del-physical-physical-domain").val()
                 },
                 function(data){
@@ -471,6 +518,9 @@ $(document).ready(function(){
                 },
                 'text'
         );
+
+        AddActions("ACI", "Physical Domain "+$("#del-physical-physical-domain").val()+" has been deleted by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-aaep").click(function(e){
@@ -478,9 +528,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('DeleteAttachableAccessEntityProfile.php',
                 {
-                    host : $("#del-host-aaep").val(),
-                    login : $("#del-login-aaep").val(),
-                    password : $("#del-passwd-aaep").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     aaep : $("#del-aaep-aaep").val()
                 },
                 function(data){
@@ -489,6 +539,8 @@ $(document).ready(function(){
                 },
                 'text'
         );
+        AddActions("ACI", "AAEP "+$("#del-aaep-aaep").val()+" has been deleted by <?php echo $_SESSION['username'];?>.");
+
     });
 
     $("#del-subnet").click(function(e){
@@ -496,9 +548,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('DeleteSubnet.php',
                 {
-                    host : $("#del-host-subnet").val(),
-                    login : $("#del-login-subnet").val(),
-                    password : $("#del-passwd-subnet").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     tenant : $("#del-tenant-subnet").val(),
                     bridge : $("#del-bridge-domain-subnet").val(),
                     subnet : $("#del-subnet-subnet").val()
@@ -509,6 +561,9 @@ $(document).ready(function(){
                 },
                 'text'
         );
+
+        AddActions("ACI", "Subnet "+$("#del-subnet-subnet").val()+" has been deleted by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#get-bridge-info").click(function(e){
@@ -516,9 +571,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('GetBridgeDomain.php',
                 {
-                    host : $("#get-host-bridge").val(),
-                    login : $("#get-login-bridge").val(),
-                    password : $("#get-passwd-bridge").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     tenant : $("#get-tenant-bridge").val()
                 },
                 function(data){
@@ -542,9 +597,9 @@ $(document).ready(function(){
         e.preventDefault();
         $.post('GetEpgInfo.php',
                 {
-                    host : $("#get-host-epg").val(),
-                    login : $("#get-login-epg").val(),
-                    password : $("#get-passwd-epg").val(),
+                    host : $("#host-default").val(),
+                    login : $("#login-default").val(),
+                    password : $("#passwd-default").val(),
                     tenant : $("#get-tenant-epg").val()
                 },
                 function(data){
@@ -553,6 +608,8 @@ $(document).ready(function(){
                 },
                 'text'
         );
+
+        AddClicktoDatabase("ACI");
     });
 
     $("#verify-exist").click(function(e){
@@ -562,7 +619,7 @@ $(document).ready(function(){
             {
                 host : $("#host-chain").val(),
                 login : $("#login-chain").val(),
-                password : $("#password-chain").val(),
+                password : $("#passwd-chain").val(),
                 tenant : $("#tenant-chain").val()
             },
             function(data){
@@ -571,6 +628,7 @@ $(document).ready(function(){
             },
             'text'
         );
+        AddClicktoDatabase("ACI");
     });
 
     $("#instance").click(function(e){
@@ -579,16 +637,265 @@ $(document).ready(function(){
 
     });
 
-    function sleep(milliSeconds){
-            var startTime = new Date().getTime(); // get the current time
-            while (new Date().getTime() < startTime + milliSeconds); // hog cpu
-        }
+    $("#demo-long").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+
+    });
+
+    $("#start-demo-long").click(function(e){
+        showStuff('aci-configuration');
+        $('#prevent-windows').hide();
+        $('#load-long').show();
+
+        e.preventDefault();
+
+        $.post('CreateChainServices.php',
+            {
+                host : $("#host-chain").val(),
+                login : $("#login-chain").val(),
+                password : $("#passwd-chain").val(),
+                tenant : $("#tenant-chain").val(),
+                private : $("#private-network-chain").val(),
+                slice : $("#slice-number-chain").val(),
+                chain : $("#chain-per-slice-chain").val(),
+                numEpg : $("#epg-per-chain").val(),
+                bridge : $("#bridge-domain-radical-chain").val(),
+                subnet : $("#subnet-bridge-chain").val(),
+                physical : $("#physical-domain-chain").val(),
+                vlan : $("#vlan-pool-physical-chain").val(),
+                profile : $("#profile-epg-chain").val(),
+                epg : $("#epg-name-chain").val(),
+                aaep : $("#aaep-aaep-chain").val(),
+                policy : $("#group-policy-aaep-chain").val(),
+                numIntProfile : $("#num-profile-aaep-chain").val(),
+                nameIntProfile : $("#profile-name-aaep-chain").val(),
+                selector : $("#selector-aaep-chain").val(),
+                fromCardNum : $("#from-card-aaep-chain").val(),
+                nameCard : $("#name-card-aaep-chain").val(),
+                fromPort : $("#from-port-aaep-chain").val(),
+                toPort : $("#to-port-aaep-chain").val(),
+                nameSwitch : $("#switch-profile-aaep-chain").val(),
+                infra : $("#infra-name-aaep-chain").val(),
+                srange : $("#start-range-aaep-chain").val()
+            },
+            function(data){
+                $("#resultat-chain-service-long").html("<p>"+data+"</p>");
+                $('#load-long').hide();
+                $('#start-demo-long').hide();
+                $('#comment-demo-long').hide();
+                $('#prevent-windows').show();
+                $('#start-demo-long-ok').show();
+                $('#comment-demo-long-succed').show();
+            },
+            'text'
+        );
+
+        AddActions("ACI", "The demonstration on "+$("#host-chain").val()+" has been launched by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#start-demo-speed").click(function(e){
+        showStuff('aci-configuration');
+        $('#prevent-windows').hide();
+        $('#load-speed').show();
+
+        e.preventDefault();
+
+        $.post('CreateChainServices.php',
+            {
+                fileName : $("#select-fileName").val()
+            },
+            function(data){
+                $("#windows-chain-service-speed").show();
+                $("#resultat-chain-service-speed").html("<p>"+data+"</p>");
+                $('#load-speed').hide();
+                $('#start-demo-speed').hide();
+                $('#comment-demo-speed').hide();
+                $('#prevent-windows').show();
+                $('#start-demo-speed-ok').show();
+                $('#comment-demo-speed-succed').show();
+            },
+            'text'
+        );
+
+        AddActions("ACI", "The demonstration "+$("#select-fileName").val()+" has been launched by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#demo-long").click(function(e){
+        e.preventDefault();
+
+        $('#start-demo-long-ok').hide();
+        $('#comment-demo-long-succed').hide();
+        $('#start-demo-long').show();
+        $('#comment-demo-long').show();
+    });
+
+    $("#demo-speed").click(function(e){
+        e.preventDefault();
+
+        $('#start-demo-speed-ok').hide();
+        $('#comment-demo-speed-succed').hide();
+        $('#start-demo-speed').show();
+        $('#comment-demo-speed').show();
+    });
+
+    $("start-demo-long-ok").click(function(e){
+        e.preventDefault();
+
+    });
+
+    $("start-demo-speed-ok").click(function(e){
+        e.preventDefault();
+
+    });
+
+    $("#save-config-demo").click(function(e){
+        showStuff('aci-configuration');
+        e.preventDefault();
+
+        $.post('SaveConfigurationDemo.php',
+            {
+                fileName :$("#name-configuration-save").val(),
+                host : $("#host-chain").val(),
+                login : $("#login-chain").val(),
+                password : $("#passwd-chain").val(),
+                tenant : $("#tenant-chain").val(),
+                private : $("#private-network-chain").val(),
+                slice : $("#slice-number-chain").val(),
+                chain : $("#chain-per-slice-chain").val(),
+                numEpg : $("#epg-per-chain").val(),
+                bridge : $("#bridge-domain-radical-chain").val(),
+                subnet : $("#subnet-bridge-chain").val(),
+                physical : $("#physical-domain-chain").val(),
+                vlan : $("#vlan-pool-physical-chain").val(),
+                profile : $("#profile-epg-chain").val(),
+                epg : $("#epg-name-chain").val(),
+                aaep : $("#aaep-aaep-chain").val(),
+                policy : $("#group-policy-aaep-chain").val(),
+                numIntProfile : $("#num-profile-aaep-chain").val(),
+                nameIntProfile : $("#profile-name-aaep-chain").val(),
+                selector : $("#selector-aaep-chain").val(),
+                fromCardNum : $("#from-card-aaep-chain").val(),
+                nameCard : $("#name-card-aaep-chain").val(),
+                fromPort : $("#from-port-aaep-chain").val(),
+                toPort : $("#to-port-aaep-chain").val(),
+                nameSwitch : $("#switch-profile-aaep-chain").val(),
+                infra : $("#infra-name-aaep-chain").val(),
+                srange : $("#start-range-aaep-chain").val()
+            },
+            function(data){
+                $("#answer-save-config").html("<p>"+data+"</p>")
+            },
+            'text'
+        );
+
+        AddActions("ACI", "The demonstration on "+$("#host-chain").val()+" has been saved by <?php echo $_SESSION['username'];?>.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#preview-configuration").click(function(e){
+        e.preventDefault();
+        $.post('PreviewConfiguration.php',
+            {
+                fileName : $("#select-fileName").val()
+            },
+            function(data){
+                $("#comment-demo-preview").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The configuration "+$("#select-fileName").val()+" has been previewed by <?php echo $_SESSION['username'];?>.");
+
+    });
+
+    $("#preview-configuration-suppr").click(function(e){
+        e.preventDefault();
+        $.post('PreviewConfiguration.php',
+            {
+                fileName : $("#select-delete-configuration").val()
+            },
+            function(data){
+                $("#comment-demo-preview-suppr").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The configuration "+$("#select-delete-configuration").val()+" has been previewed by <?php echo $_SESSION['username'];?>.");
+
+    });
+
+    $("#delete-configuration").click(function(e){
+        e.preventDefault();
+        $.post('DeleteConfiguration.php',
+            {
+                fileName : $("#select-delete-configuration").val()
+            },
+            function(data){
+                $("#comment-delete").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The configuration "+$("#select-delete-configuration").val()+" has been deleted by <?php echo $_SESSION['username'];?>.");
+
+    });
+});
+
+$(function(){
+<?php
+    $connect=mysql_connect('127.0.0.1','mamorim','cisco') or die('Error'.mysql_error());
+    mysql_select_db('API_ENVIRONMENT');
+    $reg=mysql_query("select * from engagement");
+    $total=mysql_num_rows($reg);
+    $reg=mysql_query("select * from engagement where name_engagement='ACI' ");
+    $rows=mysql_num_rows($reg);
+    echo "var aci=$rows;";
+    $reg=mysql_query("select * from engagement where name_engagement='QvBN' ");
+    $rows=mysql_num_rows($reg);
+    echo "var qvbn=$rows;";
+?>
+    Morris.Bar({
+        element: 'morris-bar-chart-element',
+        data: [{
+            y: 'from 10/09/14 to today',
+            a: aci,
+            b: qvbn
+        }],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['ACI', 'QvBN'],
+        hideHover: 'auto',
+        resize: true
+    });
 
 });
 
+function AddClicktoDatabase(name) {
+    $.post('SqlAddClick.php',
+        {
+            nameEngagement : name
+        },
+        'text'
+    );
+}
+
+function AddActions(name, description){
+    $.post('SqlAddActions.php',
+        {
+            name : name,
+            description : description
+        },
+        'text'
+    );
+}
 
 </script>
-
 
 <div class="box" id="aci-configuration">
     <div class="col-lg-12">
@@ -601,6 +908,34 @@ $(document).ready(function(){
             <p>In this category we can send requests to an ACI. Three levels are available. Orders "Create Order" and "Delete Order" makes changes to the ACI target. The order "Get Order" provide information only. All these orders using methods RESTFUL API and SDK Cobra. These queries affect the behavior of ACI, please do not abuse queries.</p>
         </div>
     </div>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Default Configuration Authentification ACI
+            </div>
+            <div class="panel-body">
+                <form role="form" method="post" name="new-epg">
+                    <div class="form-group">
+                        <label>Name Host</label>
+                        <input class="form-control" placeholder="Enter text" name="host" id="host-default">
+                        <p class="help-block">IP address : 10.60.9.165</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Login</label>
+                        <input class="form-control" placeholder="Enter text" name="login" id="login-default">
+                        <p class="help-block">example : admin</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd-default">
+                        <p class="help-block">example : cisco123</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="panel-body">
         <div id="accordion" class="panel-group">
             <div class="panel panel-default">
@@ -624,54 +959,37 @@ $(document).ready(function(){
 
                         <div class="subbox" id="from-epg">
                             <div class="col-lg-12">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <form role="form" method="post" name="new-epg">
-                                                <div class="form-group">
-                                                    <label>Name Host</label>
-                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-epg">
-                                                    <p class="help-block">IP address : 10.60.9.165</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Login</label>
-                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-epg">
-                                                    <p class="help-block">Exemple : admin</p>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd-epg">
-                                                    <p class="help-block">Exemple : cisco123</p>
-                                                </div>
 
                                                 <div class="form-group">
                                                     <label>Tenant</label>
                                                     <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-epg">
-                                                    <p class="help-block">Exemple : test123</p>
+                                                    <p class="help-block">example : test123</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Application Profile Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="profile" id="profile-epg">
-                                                    <p class="help-block">Exemple : Application-test</p>
+                                                    <p class="help-block">example : Application-test</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>EPG Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="epg" id="epg-epg">
-                                                    <p class="help-block">Exemple : epg-test</p>
+                                                    <p class="help-block">example : epg-test</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Vlan Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="vlan" id="vlan-epg">
-                                                    <p class="help-block">Exemple : vlan-test</p>
+                                                    <p class="help-block">example : vlan-test</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Bridge Domain</label>
                                                     <input class="form-control" placeholder="Enter text" name="bridge" id="bridge-epg">
-                                                    <p class="help-block">Exemple : bridge-domain-test</p>
+                                                    <p class="help-block">example : bridge-domain-test</p>
                                                 </div>
 
                                                 <input type="submit" class="btn btn-outline btn-primary" id="new-epg" value="Submit" />
@@ -680,44 +998,25 @@ $(document).ready(function(){
 
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-new-epg">bash>></p>
                                             </div>
                                         </div>
                                         <!-- /.row (nested) -->
-                                    </div>
                                     <!-- /.panel-body -->
                             </div>
                         </div>
 
                         <div class="subbox" id="from-pool-vlan">
                             <div class="col-lg-12">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <form role="form" method="post" name="new-pool-vlan">
-                                                <div class="form-group">
-                                                    <label>Name Host</label>
-                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-pool-vlan">
-                                                    <p class="help-block">IP address : 10.60.9.165</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Login</label>
-                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-pool-vlan">
-                                                    <p class="help-block">Exemple : admin</p>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd-pool-vlan">
-                                                    <p class="help-block">Exemple : cisco123</p>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label>Tenant</label>
                                                     <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-pool-vlan">
-                                                    <p class="help-block">Exemple : test123</p>
+                                                    <p class="help-block">example : test123</p>
                                                 </div>
 
                                                 <div class="form-group">
@@ -732,19 +1031,19 @@ $(document).ready(function(){
                                                 <div class="form-group">
                                                     <label>Vlan Pool Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="vlan" id="vlan-pool-vlan" >
-                                                    <p class="help-block">Exemple : toto</p>
+                                                    <p class="help-block">example : toto</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>From Vlan</label>
                                                     <input class="form-control" placeholder="Enter text" name="from" id="from-vlan-pool-vlan">
-                                                    <p class="help-block">Exemple : Vlan-20</p>
+                                                    <p class="help-block">example : Vlan-20</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>To Vlan</label>
                                                     <input class="form-control" placeholder="Enter text" name="to" id="to-pool-vlan">
-                                                    <p class="help-block">Exemple : Vlan-234</p>
+                                                    <p class="help-block">example : Vlan-234</p>
                                                 </div>
 
                                                 <input type="submit" class="btn btn-outline btn-primary" id="new-pool-vlan" value="Submit" />
@@ -753,50 +1052,31 @@ $(document).ready(function(){
 
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-new-pool-vlan">bash>></p>
                                             </div>
                                         </div>
                                         <!-- /.row (nested) -->
-                                    </div>
                                     <!-- /.panel-body -->
                             </div>
                         </div>
 
                         <div class="subbox" id="from-physical-domain">
                             <div class="col-lg-12">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <form role="form" method="post" name="new-physical-domain">
-                                                <div class="form-group">
-                                                    <label>Name Host</label>
-                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-physical">
-                                                    <p class="help-block">IP address : 10.60.9.165</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Login</label>
-                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-physical">
-                                                    <p class="help-block">Exemple : admin</p>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" placeholder="Enter text" type="password" name="passwd" id="passwd-physical">
-                                                    <p class="help-block">Exemple : cisco123</p>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label>Physical Domain Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="physical-domain" id="physical-domain-physical">
-                                                    <p class="help-block">Exemple : physical-Domain-test</p>
+                                                    <p class="help-block">example : physical-Domain-test</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Vlan Pool Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="physical-domain" id="vlan-pool-physical">
-                                                    <p class="help-block">Exemple : QvPC_Pool_test</p>
+                                                    <p class="help-block">example : QvPC_Pool_test</p>
                                                 </div>
 
                                                 <input type="submit" class="btn btn-outline btn-primary" id="new-physical-domain" value="Submit" />
@@ -804,62 +1084,43 @@ $(document).ready(function(){
                                             </form>
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-new-physical-domain">bash>></p>
                                             </div>
                                         </div>
                                         <!-- /.row (nested) -->
-                                    </div>
                                     <!-- /.panel-body -->
                             </div>
                         </div>
 
                         <div class="subbox" id="from-bridge-domain">
                             <div class="col-lg-12">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <form role="form" method="post" name="new-bridge-domain">
-                                                <div class="form-group">
-                                                    <label>Name Host</label>
-                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-bridge">
-                                                    <p class="help-block">IP address : 10.60.9.165</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Login</label>
-                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-bridge">
-                                                    <p class="help-block">Exemple : admin</p>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" placeholder="Enter text" type="password" name="passwd" id="passwd-bridge">
-                                                    <p class="help-block">Exemple : cisco123</p>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label>Tenant</label>
                                                     <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-bridge">
-                                                    <p class="help-block">Exemple : test123</p>
+                                                    <p class="help-block">example : test123</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Bridge Domain Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="bridge-domain" id="bridge-domain-bridge">
-                                                    <p class="help-block">Exemple : bridge-domain-test</p>
+                                                    <p class="help-block">example : bd-111 </p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Private Network Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="private-network" id="private-network-bridge">
-                                                    <p class="help-block">Exemple : network-test</p>
+                                                    <p class="help-block">example : network-test</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Subnet</label>
                                                     <input class="form-control" placeholder="Enter text" name="subnet" id="subnet-bridge">
-                                                    <p class="help-block">Exemple : 192.168.90.1/24 </p>
+                                                    <p class="help-block">example : 192.168.90.1/24 </p>
                                                 </div>
 
                                                 <input type="submit" class="btn btn-outline btn-primary" id="new-bridge" value="Submit" />
@@ -868,45 +1129,25 @@ $(document).ready(function(){
 
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-new-bridge-domain">bash>></p>
                                             </div>
                                         </div>
-
-                                    </div>
-                                        <!-- /.row (nested) -->
+                                    <!-- /.row (nested) -->
                                     <!-- /.panel-body -->
                             </div>
                         </div>
 
                         <div class="subbox" id="from-create-tenant">
                             <div class="col-lg-12">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <form role="form" name="new-tenant"  method="post">
-                                                <div class="form-group">
-                                                    <label>Name Host</label>
-                                                    <input class="form-control" placeholder="Enter text" name="host" id="host">
-                                                    <p class="help-block">IP address : 10.60.9.165</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Login</label>
-                                                    <input class="form-control" placeholder="Enter text" name="login" id="login">
-                                                    <p class="help-block">Exemple : admin</p>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd">
-                                                    <p class="help-block">Exemple : cisco123</p>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label>Tenant</label>
                                                     <input class="form-control" placeholder="Enter text" name="tenant" id="tenant">
-                                                    <p class="help-block">Exemple : test123</p>
+                                                    <p class="help-block">example : test123</p>
                                                 </div>
 
                                                 <input type="submit" class="btn btn-outline btn-primary" id="new-tenant" value="Submit" />
@@ -915,58 +1156,38 @@ $(document).ready(function(){
 
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-new-tenant">bash>></p>
                                             </div>
                                         </div>
                                         <!-- /.row (nested) -->
-                                    </div>
                                     <!-- /.panel-body -->
                             </div>
 
                         </div>
 
-
                         <div class="subbox" id="from-aaep">
                             <div class="col-lg-12">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <form role="form" method="post" name="new-aaep">
-                                                <div class="form-group">
-                                                    <label>Name Host</label>
-                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-aaep">
-                                                    <p class="help-block">IP address : 10.60.9.165</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Login</label>
-                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-aaep">
-                                                    <p class="help-block">Exemple : admin</p>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" placeholder="Enter text" type="password" name="passwd" id="passwd-aaep">
-                                                    <p class="help-block">Exemple : cisco123</p>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label>AAEP Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="aaep-aaep">
-                                                    <p class="help-block">Exemple : AAEP-test</p>
+                                                    <p class="help-block">example : AAEP-test</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Physical Domain Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="physical-aaep">
-                                                    <p class="help-block">Exemple : QvPC_Domain</p>
+                                                    <p class="help-block">example : QvPC_Domain</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Group Policy Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="group-policy-aaep">
-                                                    <p class="help-block">Exemple : Int_Policy_Group-QvPC</p>
+                                                    <p class="help-block">example : Int_Policy_Group-QvPC</p>
                                                 </div>
 
                                                 <div class="form-group">
@@ -987,13 +1208,13 @@ $(document).ready(function(){
                                                 <div class="form-group">
                                                     <label>Interface profile radical Name</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="profile-name-aaep">
-                                                    <p class="help-block">Exemple : Leaf</p>
+                                                    <p class="help-block">example : Leaf</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Selector name (infraHPortS)</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="selector-aaep">
-                                                    <p class="help-block">Exemple : Selector-QvPC</p>
+                                                    <p class="help-block">example : Selector-QvPC</p>
                                                 </div>
 
                                                 <div class="form-group">
@@ -1004,13 +1225,20 @@ $(document).ready(function(){
                                                         <option>2</option>
                                                         <option>3</option>
                                                         <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
                                                     </select>
+                                                    <p class="help-block">example : 1</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Name card (infraPortBlk)</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="name-card-aaep">
-                                                    <p class="help-block">Exemple : block0</p>
+                                                    <p class="help-block">example : block0</p>
                                                 </div>
 
                                                 <div class="form-group">
@@ -1021,7 +1249,14 @@ $(document).ready(function(){
                                                         <option>2</option>
                                                         <option>3</option>
                                                         <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
                                                     </select>
+                                                    <p class="help-block">example : 3</p>
                                                 </div>
 
                                                 <div class="form-group">
@@ -1032,25 +1267,32 @@ $(document).ready(function(){
                                                         <option>2</option>
                                                         <option>3</option>
                                                         <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
                                                     </select>
+                                                    <p class="help-block">example : 3</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Switch profile name</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="switch-profile-aaep">
-                                                    <p class="help-block">Exemple :Leaf</p>
+                                                    <p class="help-block">example : Leaf</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Infra name (infraLeafS)</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="infra-name-aaep">
-                                                    <p class="help-block">Exemple :Leaf</p>
+                                                    <p class="help-block">example : Leaf</p>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Start Range</label>
                                                     <input class="form-control" placeholder="Enter text" name="aaep" id="start-range-aaep">
-                                                    <p class="help-block">Exemple : 101</p>
+                                                    <p class="help-block">example : 101</p>
                                                 </div>
 
 
@@ -1059,15 +1301,14 @@ $(document).ready(function(){
                                             </form>
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-new-aaep">bash>></p>
                                             </div>
                                         </div>
                                         <!-- /.row (nested) -->
-                                    </div>
-                                    <!-- /.panel-body -->
+                                        <!-- /.panel-body -->
                             </div>
                         </div>
 
@@ -1096,75 +1337,36 @@ $(document).ready(function(){
 
                             <div class="subbox" id="from-delete-tenant">
                                 <div class="col-lg-12">
-                                        <div class="panel-body">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <form role="form" method="post" name="del-tenant">
-                                                    <div class="form-group">
-                                                        <label>Name Host</label>
-                                                        <input class="form-control" placeholder="Enter text" name="host" id="del-host-tenant">
-                                                        <p class="help-block">IP address : 10.60.9.165</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Login</label>
-                                                        <input class="form-control" placeholder="Enter text" name="login" id="del-login-tenant">
-                                                        <p class="help-block">Exemple : admin</p>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="del-passwd-tenant">
-                                                        <p class="help-block">Exemple : cisco123</p>
-                                                    </div>
-
                                                     <div class="form-group">
                                                         <label>Tenant</label>
                                                         <input class="form-control" placeholder="Enter text" name="tenant" id="del-tenant-tenant">
-                                                        <p class="help-block">Exemple : Tenant existing</p>
+                                                        <p class="help-block">example : Tenant existing</p>
                                                     </div>
 
                                                     <input type="submit" class="btn btn-outline btn-primary" id="del-tenant" value="Submit" />
                                                     <button type="reset" class="btn btn-outline btn-danger">Reset</button>
-                                            </form>
-                                        </div>
-
-                                        <div class="col-lg-6">
+                                                </form>
+                                            </div>
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-del-tenant">bash>></p>
                                             </div>
                                         </div>
                                             <!-- /.row (nested) -->
-                                        </div>
-                                        <!-- /.panel-body -->
                                 </div>
                             </div>
 
                             <div class="subbox" id="from-del-vlan">
                                 <div class="col-lg-12">
-                                        <div class="panel-body">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <form role="form" method="post" name="del-pool-vlan">
-                                                    <div class="form-group">
-                                                        <label>Name Host</label>
-                                                        <input class="form-control" placeholder="Enter text" name="host" id="del-host-pool-vlan">
-                                                        <p class="help-block">IP address : 10.60.9.165</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Login</label>
-                                                        <input class="form-control" placeholder="Enter text" name="login" id="del-login-pool-vlan">
-                                                        <p class="help-block">Exemple : admin</p>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="del-passwd-pool-vlan">
-                                                        <p class="help-block">Exemple : cisco123</p>
-                                                    </div>
-
                                                     <div class="form-group">
                                                         <label>Vlan Name</label>
                                                         <input class="form-control" placeholder="Enter text" name="vlan" id="del-vlan-pool-vlan">
-                                                        <p class="help-block">Exemple : Vlan existing</p>
+                                                        <p class="help-block">example : Vlan existing</p>
                                                     </div>
 
                                                     <div class="form-group">
@@ -1182,138 +1384,81 @@ $(document).ready(function(){
 
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <div class="well well-sm">
                                                     <h4>Console</h4>
                                                     <p id="resultat-del-pool-vlan">bash>></p>
                                                 </div>
                                             </div>
                                             <!-- /.row (nested) -->
-                                        </div>
                                         <!-- /.panel-body -->
                                 </div>
                             </div>
 
                             <div class="subbox" id="from-del-physical-dom">
                                 <div class="col-lg-12">
-                                        <div class="panel-body">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <form role="form" method="post" name="del-physical-domain">
-                                                    <div class="form-group">
-                                                        <label>Name Host</label>
-                                                        <input class="form-control" placeholder="Enter text" name="host" id="del-host-physical-domain">
-                                                        <p class="help-block">IP address : 10.60.9.165</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Login</label>
-                                                        <input class="form-control" placeholder="Enter text" name="login" id="del-login-physical-domain">
-                                                        <p class="help-block">Exemple : admin</p>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="del-passwd-physical-domain">
-                                                        <p class="help-block">Exemple : cisco123</p>
-                                                    </div>
-
                                                     <div class="form-group">
                                                         <label>Physical Domain Name</label>
                                                         <input class="form-control" placeholder="Enter text" name="physical-domain" id="del-physical-physical-domain">
-                                                        <p class="help-block">Exemple : Physical Domain existing</p>
+                                                        <p class="help-block">example : Physical Domain existing</p>
                                                     </div>
                                                     <input type="submit" class="btn btn-outline btn-primary" id="del-physical-domain" value="Submit" />
                                                     <button type="reset" class="btn btn-outline btn-danger">Reset</button>
                                                 </form>
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <div class="well well-sm">
                                                     <h4>Console</h4>
                                                     <p id="resultat-del-physical-domain">bash>></p>
                                                 </div>
                                             </div>
                                             <!-- /.row (nested) -->
-                                        </div>
                                         <!-- /.panel-body -->
                                 </div>
                             </div>
 
                             <div class="subbox" id="from-del-aaep">
                                 <div class="col-lg-12">
-                                        <div class="panel-body">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <form role="form" method="post" name="del-aaep">
-                                                    <div class="form-group">
-                                                        <label>Name Host</label>
-                                                        <input class="form-control" placeholder="Enter text" name="host" id="del-host-aaep">
-                                                        <p class="help-block">IP address : 10.60.9.165</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Login</label>
-                                                        <input class="form-control" placeholder="Enter text" name="login" id="del-login-aaep">
-                                                        <p class="help-block">Exemple : admin</p>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="del-passwd-aaep">
-                                                        <p class="help-block">Exemple : cisco123</p>
-                                                    </div>
-
                                                     <div class="form-group">
                                                         <label>AAEP Name</label>
                                                         <input class="form-control" placeholder="Enter text" name="aaep" id="del-aaep-aaep">
-                                                        <p class="help-block">Exemple : Profile existing</p>
+                                                        <p class="help-block">example : Profile existing</p>
                                                     </div>
                                                     <input type="submit" class="btn btn-outline btn-primary" id="del-aaep" value="Submit" />
                                                     <button type="reset" class="btn btn-outline btn-danger">Reset</button>
                                                 </form>
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <div class="well well-sm">
                                                     <h4>Console</h4>
                                                     <p id="resultat-del-aaep">bash>></p>
                                                 </div>
                                             </div>
                                             <!-- /.row (nested) -->
-                                        </div>
                                         <!-- /.panel-body -->
                                 </div>
                             </div>
 
                             <div class="subbox" id="from-del-subnet">
                                 <div class="col-lg-12">
-                                        <div class="panel-body">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <form role="form" method="post" name="del-subnet">
-                                                    <div class="form-group">
-                                                        <label>Name Host</label>
-                                                        <input class="form-control" placeholder="Enter text" name="host" id="del-host-subnet">
-                                                        <p class="help-block">IP address : 10.60.9.165</p>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Login</label>
-                                                        <input class="form-control" placeholder="Enter text" name="login" id="del-login-subnet">
-                                                        <p class="help-block">Exemple : admin</p>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="del-passwd-subnet">
-                                                        <p class="help-block">Exemple : cisco123</p>
-                                                    </div>
-
                                                     <div class="form-group">
                                                         <label>Tenant Name</label>
                                                         <input class="form-control" placeholder="Enter text" name="tenant" id="del-tenant-subnet">
-                                                        <p class="help-block">Exemple : Tenant existing</p>
+                                                        <p class="help-block">example : Tenant existing</p>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Bridge Domain Name</label>
                                                         <input class="form-control" placeholder="Enter text" name="bridge-domain" id="del-bridge-domain-subnet">
-                                                        <p class="help-block">Exemple : Bridge Domain existing</p>
+                                                        <p class="help-block">example : Bridge Domain existing</p>
                                                     </div>
 
                                                     <div class="form-group">
@@ -1326,14 +1471,13 @@ $(document).ready(function(){
                                                 </form>
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <div class="well well-sm">
                                                     <h4>Console</h4>
                                                     <p id="resultat-del-subnet">bash>></p>
                                                 </div>
                                             </div>
                                             <!-- /.row (nested) -->
-                                        </div>
                                         <!-- /.panel-body -->
                                 </div>
                             </div>
@@ -1360,30 +1504,12 @@ $(document).ready(function(){
 
                         <div class="subbox" id="get-bridge-vlan-info">
                             <div class="col-lg-12">
-                                     <div class="panel-body">
-                                         <div class="col-lg-6">
+                                         <div class="col-lg-4">
                                              <form role="form" method="post" name="get-bridge-info">
-                                                 <div class="form-group">
-                                                     <label>Name Host</label>
-                                                     <input class="form-control" placeholder="Enter text" name="host" id="get-host-bridge">
-                                                     <p class="help-block">IP address : 10.60.9.165</p>
-                                                 </div>
-                                                 <div class="form-group">
-                                                     <label>Login</label>
-                                                     <input class="form-control" placeholder="Enter text" name="login" id="get-login-bridge">
-                                                     <p class="help-block">Exemple : admin</p>
-                                                 </div>
-
-                                                 <div class="form-group">
-                                                     <label>Password</label>
-                                                     <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="get-passwd-bridge">
-                                                     <p class="help-block">Exemple : cisco123</p>
-                                                 </div>
-
                                                  <div class="form-group">
                                                      <label>Tenant</label>
                                                      <input class="form-control" placeholder="Enter text" name="tenant" id="get-tenant-bridge">
-                                                     <p class="help-block">Exemple : test123</p>
+                                                     <p class="help-block">example : test123</p>
                                                  </div>
 
                                                  <input type="submit" class="btn btn-outline btn-primary" id="get-bridge-info" value="Submit" />
@@ -1392,7 +1518,7 @@ $(document).ready(function(){
 
                                          </div>
 
-                                         <div class="col-lg-6">
+                                         <div class="col-lg-8">
                                              <div class="well well-sm">
                                                  <h4>Console</h4>
                                                  <p id="resultat-get-bridge">bash>></p>
@@ -1400,7 +1526,7 @@ $(document).ready(function(){
                                          </div>
 
                                          <!-- /.row (nested) -->
-                                    </div>
+
 
                                     <!-- /.panel-heading -->
                                     <div class="panel-body" name="dataTablesGetBridge">
@@ -1424,50 +1550,7 @@ $(document).ready(function(){
                                                            <td>Win 95+</td>
                                                            <td class="center">4</td>
                                                            <td class="center">X</td>
-                                                       </tr>
-                                                       <tr class="even gradeC">
-                                                           <td>Trident</td>
-                                                           <td>Internet Explorer 5.0</td>
-                                                           <td>Win 95+</td>
-                                                           <td class="center">5</td>
-                                                           <td class="center">C</td>
-                                                       </tr>
-                                                       <tr class="odd gradeA">
-                                                           <td>Trident</td>
-                                                           <td>Internet Explorer 5.5</td>
-                                                           <td>Win 95+</td>
-                                                           <td class="center">5.5</td>
-                                                           <td class="center">A</td>
-                                                       </tr>
-                                                       <tr class="even gradeA">
-                                                           <td>Trident</td>
-                                                           <td>Internet Explorer 6</td>
-                                                           <td>Win 98+</td>
-                                                           <td class="center">6</td>
-                                                           <td class="center">A</td>
-                                                       </tr>
-                                                       <tr class="odd gradeA">
-                                                           <td>Trident</td>
-                                                           <td>Internet Explorer 7</td>
-                                                           <td>Win XP SP2+</td>
-                                                           <td class="center">7</td>
-                                                           <td class="center">A</td>
-                                                       </tr>
-                                                       <tr class="even gradeA">
-                                                           <td>Trident</td>
-                                                           <td>AOL browser (AOL desktop)</td>
-                                                           <td>Win XP</td>
-                                                           <td class="center">6</td>
-                                                           <td class="center">A</td>
-                                                       </tr>
-                                                       <tr class="gradeA">
-                                                           <td>Gecko</td>
-                                                           <td>Firefox 1.0</td>
-                                                           <td>Win 98+ / OSX.2+</td>
-                                                           <td class="center">1.7</td>
-                                                           <td class="center">A</td>
-                                                       </tr>
- -->
+                                                       </tr>-->
                                                 </tbody>
                                             </table>
                                         </div>
@@ -1479,30 +1562,12 @@ $(document).ready(function(){
 
                         <div class="subbox" id="get-epg-info">
                             <div class="col-lg-12">
-                                    <div class="panel-body">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <form role="form" method="post" name="get-bridge-info">
-                                                <div class="form-group">
-                                                    <label>Name Host</label>
-                                                    <input class="form-control" placeholder="Enter text" name="host" id="get-host-epg">
-                                                    <p class="help-block">IP address : 10.60.9.165</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Login</label>
-                                                    <input class="form-control" placeholder="Enter text" name="login" id="get-login-epg">
-                                                    <p class="help-block">Exemple : admin</p>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="get-passwd-epg">
-                                                    <p class="help-block">Exemple : cisco123</p>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label>Tenant</label>
                                                     <input class="form-control" placeholder="Enter text" name="tenant" id="get-tenant-epg">
-                                                    <p class="help-block">Exemple : test123</p>
+                                                    <p class="help-block">example : test123</p>
                                                 </div>
 
                                                 <input type="submit" class="btn btn-outline btn-primary" id="get-tenant-epg-info" value="Submit" />
@@ -1511,7 +1576,7 @@ $(document).ready(function(){
 
                                         </div>
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="well well-sm">
                                                 <h4>Console</h4>
                                                 <p id="resultat-get-epg">bash>></p>
@@ -1519,7 +1584,6 @@ $(document).ready(function(){
                                         </div>
 
                                         <!-- /.row (nested) -->
-                                    </div>
                                     <!-- /.panel-body -->
                             </div>
 
@@ -1534,78 +1598,484 @@ $(document).ready(function(){
                     <h4 class="panel-title"><a href="#collapseFour" data-parent="#accordion" data-toggle="collapse">Service Chaining</a></h4>
                 </div>
                 <div id="collapseFour" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <div class="col-lg-6">
-                            <form role="form" method="post" name="from-verify-exiting-tenant">
-                                <div class="form-group">
-                                    <label>Name Host</label>
-                                    <input class="form-control" placeholder="Enter text" name="host" id="host-chain">
+                        <!--/.panel-heading-->
+                        <div class="panel-body">
+                            <!--Nav tabs-->
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#home">Lunch Demonstration</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#profile">Create demonstration</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#messages">Remove configuration</a>
+                                </li>
+                            </ul>
+
+                            <!--Tab panes-->
+                            <div class="tab-content">
+                                <div id="home" class="tab-pane fade in active">
+                                    <h4>Demo</h4>
+                                    <div class="form-group">
+                                        <label>Select configuration</label>
+                                        <select class="form-control" style="width: 15%;" id="select-fileName">
+                                            <?php
+                                            $row = exec('ls /var/www/API-frontend/config/config-save',$output,$error);
+                                            while(list(,$row) = each($output)){
+                                                echo "<option>$row</option>";
+                                            }
+                                            if($error){
+                                                echo "<option>$error</option>";
+                                                exit;
+                                            }
+                                            ?>
+                                        </select>
+
+
+                                    </div>
+                                    <div class="panel-body">
+                                        <input type="submit" class="btn btn-outline btn-primary btn-lg btn-block" id="demo-speed" value="Start Demonstration" data-toggle="modal" data-target="#myModaldemospeed" style="width: 50%; margin-left: 25%; margin-bottom: -1%;" />
+                                    </div>
+
+                                    <div class="modal fade" id="myModaldemospeed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <img src="load2.gif" style="width: 20%;margin-top: 50%;margin-left: 42%;" alt="Mountain View" id="load-speed">
+                                            <div class="modal-content" id="prevent-windows">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p id="comment-demo-speed">Are you sure you want to run this demonstration ?</p>
+                                                    <p id="comment-demo-speed-succed">Succed !</p>
+
+                                                </div>
+                                                <div class="modal-footer" id="new-bouton-ok-demo-speed">
+                                                    <button type="button" class="btn btn-outline btn-danger" data-dismiss="modal">Cancel</button>
+                                                    <input type="submit" class="btn btn-outline btn-primary" id="start-demo-speed" value="Confirm" name="confirm-instance"/>
+                                                    <input type="button" class="btn btn-outline btn-primary" data-dismiss="modal" id="start-demo-speed-ok" value="Ok" name="confirm-instance"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <input type="submit" class="btn btn-outline btn-success" id="preview-configuration" value="Preview" data-toggle="modal" data-target="#myModaldemopreview" style="width: 10%; margin-left: 45%; margin-bottom: 1%;" />
+                                    </div>
+
+                                    <div class="modal fade" id="myModaldemopreview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" id="">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Configuration preview</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p id="comment-demo-preview"></p>
+                                                </div>
+                                                <div class="modal-footer" id="">
+                                                    <input type="button" class="btn btn-outline btn-primary" data-dismiss="modal" value="Ok" name="confirm-instance"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="subbox" id="windows-chain-service-speed">
+                                        <div class="col-lg-12">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-chain-service-speed"></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Login</label>
-                                    <input class="form-control" placeholder="Enter text" name="login" id="login-chain">
+                                <div id="profile" class="tab-pane fade">
+                                    <div class="col-lg-12">
+                                        <div class="col-lg-6">
+                                            <h4>New demo</h4>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" placeholder="Configuration name" style="margin-top: 1%; margin-bottom: 1%; width: 27%;" id="name-configuration-save">
+                                        </div>
+                                    </div>
+                                    <!--/.panel-body-->
+                                    <div class="panel-body">
+                                        <div class="col-lg-4">
+                                            <form role="form" method="post" name="from-verify-exiting-tenant">
+                                                <div class="form-group">
+                                                    <label>Name Host</label>
+                                                    <input class="form-control" placeholder="Enter text" name="host" id="host-chain">
+                                                    <p class="help-block">example : 10.60.9.165</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Login</label>
+                                                    <input class="form-control" placeholder="Enter text" name="login" id="login-chain">
+                                                    <p class="help-block">example : admin</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="passwd-chain">
+                                                    <p class="help-block">example : cisco123</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Tenant</label>
+                                                    <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-chain">
+                                                    <p class="help-block">example : MyTenant</p>
+                                                </div>
+
+                                                <input type="submit" class="btn btn-outline btn-primary" id="verify-exist" value="Submit" />
+                                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                            </form>
+
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-chain-service">bash>></p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <div class="col-lg-4">
+                                            <form role="form" method="post" name="">
+
+                                                <h4 class="page-header">Structure</h4>
+                                                <div class="form-group">
+                                                    <label>Private Network Name</label>
+                                                    <input class="form-control" placeholder="Enter text" id="private-network-chain" >
+                                                    <p class="help-block">example : pn-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Slice number</label>
+                                                    <select class="form-control" id="slice-number-chain">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                    <p class="help-block">example : 3</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>chain(s) per Slice</label>
+                                                    <select class="form-control" id="chain-per-slice-chain">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select
+                                                    <p class="help-block">example : 2</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>EPG(s) per Chain</label>
+                                                    <select class="form-control" id="epg-per-chain">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                    <p class="help-block">example : 3</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Bridge Domain Radical Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="bridge-domain" id="bridge-domain-radical-chain">
+                                                    <p class="help-block">example : bd </p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Subnet (optional)</label>
+                                                    <input class="form-control" placeholder="Enter text" name="subnet" id="subnet-bridge-chain">
+                                                    <p class="help-block">example : 192.168.90.1/24 </p>
+                                                </div>
+
+                                                <h4 class="page-header">Physical Domain</h4>
+                                                <div class="form-group">
+                                                    <label>Physical Domain Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="physical-domain" id="physical-domain-chain">
+                                                    <p class="help-block">example : physical-Domain-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Vlan Pool Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="physical-domain" id="vlan-pool-physical-chain">
+                                                    <p class="help-block">example : QvPC_Pool_test</p>
+                                                </div>
+
+                                                <h4 class="page-header">EPG</h4>
+                                                <div class="form-group">
+                                                    <label>Application Profile Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="profile" id="profile-epg-chain">
+                                                    <p class="help-block">example : Application-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>EPG radical Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="epg" id="epg-name-chain">
+                                                    <p class="help-block">example : epg</p>
+                                                </div>
+
+                                                <h4 class="page-header">AAEP</h4>
+                                                <div class="form-group">
+                                                    <label>AAEP Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="aaep-aaep-chain">
+                                                    <p class="help-block">example : AAEP-test</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Group Policy Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="group-policy-aaep-chain">
+                                                    <p class="help-block">example : Int_Policy_Group-QvPC</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Number Interface profile</label>
+                                                    <select class="form-control" id="num-profile-aaep-chain">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                    <p class="help-block">example : 3</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Interface profile radical Name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="profile-name-aaep-chain">
+                                                    <p class="help-block">example : Leaf</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Selector name (infraHPortS)</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="selector-aaep-chain">
+                                                    <p class="help-block">example : Selector-QvPC</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>From card number</label>
+                                                    <select class="form-control" id="from-card-aaep-chain">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                    <p class="help-block">example : 1</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Name card (infraPortBlk)</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="name-card-aaep-chain">
+                                                    <p class="help-block">example : block0</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>From port</label>
+                                                    <select class="form-control" id="from-port-aaep-chain">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                    <p class="help-block">example : 3</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>To port</label>
+                                                    <select class="form-control" id="to-port-aaep-chain">
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                    </select>
+                                                    <p class="help-block">example : 3</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Switch profile name</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="switch-profile-aaep-chain">
+                                                    <p class="help-block">example : Leaf</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Infra name (infraLeafS)</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="infra-name-aaep-chain">
+                                                    <p class="help-block">example : Leaf</p>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Start Range</label>
+                                                    <input class="form-control" placeholder="Enter text" name="aaep" id="start-range-aaep-chain">
+                                                    <p class="help-block">example : 101</p>
+                                                </div>
+
+
+                                                <div class="panel-body">
+                                                    <input type="submit" class="btn btn-outline btn-primary btn-lg btn-block" id="demo-long" value="Submit" data-toggle="modal" data-target="#myModaldemolong" />
+                                                </div>
+                                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
+                                                <input class="btn btn-outline btn-success" style="float: right;" type="submit" value="Save" id="save-config-demo"/>
+                                                <p id="answer-save-config" style="margin-left: 27%;"></p>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="myModaldemolong" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <img src="load2.gif" style="width: 20%;margin-top: 50%;margin-left: 42%;" alt="Mountain View" id="load-long">
+                                                        <div class="modal-content" id="prevent-windows">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p id="comment-demo-long">Are you sure you want to run this demonstration ?</p>
+                                                                <p id="comment-demo-long-succed">Succed !</p>
+
+                                                            </div>
+                                                            <div class="modal-footer" id="new-bouton-ok-demo-long">
+                                                                <button type="button" class="btn btn-outline btn-danger" data-dismiss="modal">Cancel</button>
+                                                                <input type="submit" class="btn btn-outline btn-primary" id="start-demo-long" value="Confirm" name="confirm-instance"/>
+                                                                <input type="button" class="btn btn-outline btn-primary" data-dismiss="modal" id="start-demo-long-ok" value="Ok" name="confirm-instance"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal -->
+                                            </form>
+
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="well well-sm">
+                                                <h4>Console</h4>
+                                                <p id="resultat-chain-service-long">bash>></p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="messages" class="tab-pane fade">
+                                    <h4>Remove</h4>
+                                    <div class="form-group">
+                                        <label>Select configuration</label>
+                                        <select class="form-control" style="width: 15%;" id="select-delete-configuration">
+                                            <?php
+                                            $row = exec('ls /var/www/API-frontend/config/config-save',$output,$error);
+                                            while(list(,$row) = each($output)){
+                                                echo "<option>$row</option>";
+                                            }
+                                            if($error){
+                                                echo "<option>$error</option>";
+                                                exit;
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <input type="submit" class="btn btn-outline btn-danger" id="configuration-deleted" value="Delete Configuration" data-toggle="modal" data-target="#myModaldemopreviewdel" style="width: 50%; margin-left: 25%; margin-bottom: -1%;" />
+                                    </div>
+
+                                    <div class="modal fade" id="myModaldemopreviewdel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" id="">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Remove Configuration</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p id="comment-demo-preview-del">Do you want to delete this configuration ?</p>
+                                                </div>
+                                                <div class="modal-footer" id="">
+                                                    <input type="button" class="btn btn-outline btn-danger" data-dismiss="modal" value="Cancel" name="confirm-instance"/>
+                                                    <input type="submit" id="delete-configuration" class="btn btn-outline btn-primary" data-dismiss="modal" value="Confim" name="confirm-instance"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel-body">
+                                        <input type="submit" class="btn btn-outline btn-success" id="preview-configuration-suppr" value="Preview" data-toggle="modal" data-target="#myModaldemopreviewsuppr" style="width: 10%; margin-left: 45%; margin-bottom: 1%;" />
+                                    </div>
+                                    <p id="comment-delete" style="margin-left: 44%;"></p>
+                                    <div class="modal fade" id="myModaldemopreviewsuppr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" id="">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Configuration preview</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p id="comment-demo-preview-suppr"></p>
+                                                </div>
+                                                <div class="modal-footer" id="">
+                                                    <input type="button" class="btn btn-outline btn-primary" data-dismiss="modal" value="Ok" name="confirm-instance"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="form-control" placeholder="Enter text" name="passwd" type="password" id="password-chain">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Tenant</label>
-                                    <input class="form-control" placeholder="Enter text" name="tenant" id="tenant-chain">
-                                </div>
-
-                                <input type="submit" class="btn btn-outline btn-primary" id="verify-exist" value="Submit" />
-                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
-                            </form>
-
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="well well-sm">
-                                <h4>Console</h4>
-                                <p id="resultat-chain-service">bash>></p>
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="panel-body">
-                        <div class="col-lg-6">
-                            <form role="form" method="post" name="">
-
-                                <div class="form-group">
-                                    <label>Bridge Domain number</label>
-                                    <input class="form-control" placeholder="Enter text" name="bridge-domain" id="">
-                                    <p class="help-block">Exemple :</p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Bridge Domain Name radical</label>
-                                    <input class="form-control" placeholder="Enter text" name="bridge-domain" id="">
-                                    <p class="help-block">Exemple : </p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Bridge Domain number</label>
-                                    <input class="form-control" placeholder="Enter text" name="bridge-domain" id="">
-                                    <p class="help-block">Exemple : </p>
-                                </div>
-                                <input type="submit" class="btn btn-outline btn-primary" id="" value="Submit" />
-                                <button type="reset" class="btn btn-outline btn-danger">Reset</button>
-                            </form>
-
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="well well-sm">
-                                <h4>Console</h4>
-                                <p id="resultat-chain-service">bash>></p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -1647,19 +2117,19 @@ $(document).ready(function(){
                                             <div class="form-group">
                                                 <label>Login</label>
                                                 <input class="form-control" placeholder="Enter text" name="login">
-                                                <p class="help-block">Exemple : root</p>
+                                                <p class="help-block">example : root</p>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Password</label>
                                                 <input class="form-control" placeholder="Enter text" name="passwd">
-                                                <p class="help-block">Exemple : cisco</p>
+                                                <p class="help-block">example : cisco</p>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>...</label>
                                                 <input class="form-control" placeholder="Enter text" name="tenant">
-                                                <p class="help-block">Exemple : ...</p>
+                                                <p class="help-block">example : ...</p>
                                             </div>
 
                                             <!--<button class="btn btn-outline btn-primary btn-lg btn-block" type="button">Start Instance</button>-->
@@ -1693,6 +2163,7 @@ $(document).ready(function(){
                                                                 <input type="submit" class="btn btn-outline btn-primary" id="confirm-instance" value="Confirm" data-dismiss="modal" name="confirm-instance"/>
                                                             </div>
                                                         </div>
+                                                        <img src="load2.gif" style="width: 20%;margin-top: 50%;margin-left: 42%;" alt="Mountain View" id="">
                                                     </div>
                                                 </div>
                                                 <!-- /.modal -->
@@ -1715,7 +2186,8 @@ $(document).ready(function(){
                            </div>
                         <div class="tab-pane fade" id="profile">
                             <h4>Informations</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>blabla</p>
+
                         </div>
                         <div class="tab-pane fade" id="messages">
                             <h4>Messages Tab</h4>
@@ -1733,9 +2205,7 @@ $(document).ready(function(){
         </div>
         <!-- /.col-lg-6 -->
     </div>
-
-
-
+    
         <!-- /.panel -->
 </div>
     <!-- /.col-lg-12 -->

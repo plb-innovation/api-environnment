@@ -8,6 +8,7 @@
 
 function prettyPrint($a) {
     print("<pre>".print_r(str_replace("<","&lt;",str_replace(">","&gt;",$a)),true)."</pre>");
+    //echo str_replace("<","&lt;",str_replace(">","&gt;",$a));
     //foreach($a as $d){
     //    echo $d."</br>";
     //}

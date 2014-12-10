@@ -80,13 +80,14 @@ if (isset($_POST['submit']))
     });
 </script>
 
-<body style="background-image: url('bck_img1'); background-size: 100%; background-repeat: no-repeat;">
-
+<body style="background-image: url('bck_img1'); background-repeat: no-repeat;background-position: center top; border: medium none;">
+<img src="ciscoLogo.png" alt="Mountain View" style="width:260px;height:0%; float:right;">
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4" style="margin-top: 200px;">
-                        <form role="form" method="post" name="auth">
+            <div style="margin-top:200px;" >
+                <div class="col-md-4 col-md-offset-4" style="padding-top: 2%; padding-bottom: 2%; padding-left: 2%; padding-right: 2%; background-color:transparent;">
+                    <form role="form" method="post" name="auth">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Login" name="login" autofocus>
@@ -102,7 +103,8 @@ if (isset($_POST['submit']))
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input name="submit" type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
                             </fieldset>
-                        </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

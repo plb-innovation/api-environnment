@@ -1,11 +1,11 @@
 <polUni>
-	<fvTenant name="GiLan">
-        <fvAp name="GiLan">
+	<fvTenant name="Gilan">
+        <fvAp name="Gilan">
 			<fvAEPg name="epg-113">
-				<fvRsBd tnFvBDName="BD-113"/>
-				<fvRsPathAtt encap="vlan-113" instrImedcy="immediate" tDn="topology/pod-1/paths-101/pathep-[eth1/3]"/>
-				<fvRsPathAtt encap="vlan-113" instrImedcy="immediate" tDn="topology/pod-1/paths-102/pathep-[eth1/3]"/>
-				<fvRsPathAtt encap="vlan-113" instrImedcy="immediate" tDn="topology/pod-1/paths-103/pathep-[eth1/3]"/>
+				<fvRsBd tnFvBDName="bd-113"/>
+				<fvRsPathAtt encap="vlan-91" instrImedcy="immediate" tDn="topology/pod-1/paths-101/pathep-[eth1/3]"/>
+				<fvRsPathAtt encap="vlan-91" instrImedcy="immediate" tDn="topology/pod-1/paths-102/pathep-[eth1/3]"/>
+				<fvRsPathAtt encap="vlan-91" instrImedcy="immediate" tDn="topology/pod-1/paths-103/pathep-[eth1/3]"/>
 			</fvAEPg>
 		</fvAp>
 	</fvTenant>
