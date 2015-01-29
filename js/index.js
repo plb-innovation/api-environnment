@@ -1,188 +1,35 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Amorim
- * Date: 17/11/2014
- * Time: 19:04
- */
-session_start();
-
-if($_SESSION['username']){
-
-}else header("Location:login.php");
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Cisco Paris Lab </title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="css/plugins/timeline.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-<div id="wrapper">
-
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id="navigation" name="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.php">Cisco Paris Lab Network API Environment</a>
-    </div>
-    <!-- /.navbar-header -->
-
-    <ul class="nav navbar-top-links navbar-right">
-
-        <!-- /.dropdown -->
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                </li>
-
-                <li class="divider"></li>
-                <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                </li>
-            </ul>
-            <!-- /.dropdown-user -->
-        </li>
-        <!-- /.dropdown -->
-        <li class="dropdown">
-            <img src="ciscoLogo.png" alt="Mountain View" style="width:67px;;height:0%;">
-        </li>
-
-    </ul>
-    <!-- /.navbar-top-links -->
-
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li class="sidebar-search">
-                    <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                    </div>
-                    <!-- /input-group -->
-                </li>
-                <li>
-                    <a  onclick="showStuff('dashboard.php')" ><i class="fa fa-dashboard fa-fw"></i> Dashboard<span class="fa arrow"></span></a>
-                </li>
-                <li>
-                    <a onclick="showStuff('aci-configuration.php')"><i class="fa fa-bar-chart-o fa-fw" id="menu-aci"></i>  ACI<span class="fa arrow"></span></a>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a onclick="showStuff('qvbn-configuration.php')"><i class="fa fa-bar-chart-o fa-fw" id="menu-qvbn"></i>  QvBN<span class="fa arrow"></span></a>
-                    <!-- /.nav-second-level -->
-                </li>
-
-                <li>
-                    <a href="index.php"><i class="fa fa-bar-chart-o fa-fw" id="menu-csr"></i> CSR<span class="fa arrow"></span></a>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
-                    <a href="index.php"><i class="fa fa-bar-chart-o fa-fw" id="menu-ucs"></i> UCS<span class="fa arrow"></span></a>
-                    <!-- /.nav-second-level -->
-                </li>
-
-            </ul>
-        </div>
-        <!-- /.sidebar-collapse -->
-    </div>
-    <!-- /.navbar-static-side -->
-</nav>
-
-<div id="page-wrapper">
-
-    <div id="includedContent"></div>
-
-<script>
-
 function WindowsInit() {
-    $("#includedContent").load("dashboard.php");
-    alert('plop3');
+
+    $('.subbox').hide();
+
+    $('#load-long').hide();
+    $('#load-speed').hide();
+    $('#start-demo-long-ok').hide();
+    $('#comment-demo-long-succed').hide();
+
+    $('#start-demo-speed-ok').hide();
+    $('#comment-demo-speed-succed').hide();
+
+    $('#dashboard').show();
+    $('#progression-bar-demo-long').hide();
+    $('#progression-bar-demo-speed').hide();
+    $('div[name=dataTablesGetBridge]').hide();
+
+    $('.tooltip-demo').tooltip({
+        selector: "[data-toggle=tooltip]",
+        container: "body"
+    })
 }
 
 function showStuff(id) {
-    $("#includedContent").load(id);
+    $('.box').hide();
+    $('#'+id).show();
 
-
-    if(id == "aci-configuration.php" ){
-
-        $('.subbox').hide();
-        $('#load').hide();
-        $('#start-demo-long-ok').hide();
-        $('#comment-demo-long-succed').hide();
-        $('#progression-bar-demo-long').hide();
-        $('div[name=dataTablesGetBridge]').hide();
-        AddClicktoDatabase("ACI");
-    }
-
-    if(id == "qvbn-configuration.php" ){
-        AddClicktoDatabase("QvBN");
-    }
-
-    if(id == "ucs-configuration.php" ){
-        AddClicktoDatabase("UCS");
-    }
-
-    if(id == "csr-configuration.php" ){
-        AddClicktoDatabase("CSR");
-    }
 }
 
 function showStuffSub(id) {
     $('.subbox').hide();
     $('#'+id).show();
-
 }
 
 function showStuffNonesub() {
@@ -201,13 +48,26 @@ function sleep(milliSeconds){
     while (new Date().getTime() < startTime + milliSeconds); // hog cpu
 }
 
+function AddClicktoDatabase(name) {
+    $.post('SqlAddClick.php',
+        {
+            nameEngagement : name
+        },
+        'text'
+    );
+}
 
-$("#includedContent").load("dashboard.php");
+function AddActions(name, description){
+    $.post('SqlAddActions.php',
+        {
+            name : name,
+            description : description
+        },
+        'text'
+    );
+}
 
 $(document).ready(function(){
-    alert('plop1');
-    $("#includedContent").load("dashboard.php");
-    alert('plop2');
     WindowsInit();
     $('#dataTables-get-bridge').dataTable();
 
@@ -230,6 +90,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "Tenant "+$("#tenant").val()+" has been created.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-bridge").click(function(e){
@@ -252,7 +113,36 @@ $(document).ready(function(){
             'text'
         );
 
-        AddActions("ACI", "Bridge "+$("#bridge-domain-bridge").val()+" has been created");
+        AddActions("ACI", "Bridge "+$("#bridge-domain-bridge").val()+" has been created.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#new-epg-bridge-chain").click(function(e){
+        e.preventDefault();
+        $("#resultat-new-epg-bridge-chain").html("<p>Operation in progress ...</p>");
+        $.post('CreateEPGBridgeChain.php',
+            {
+                host : $("#host-default").val(),
+                login : $("#login-default").val(),
+                password : $("#passwd-default").val(),
+                tenant : $("#tenant-epg-bridge-chain").val(),
+                private : $("#private-epg-bridge-chain").val(),
+                profile : $("#profile-epg-bridge-chain").val(),
+                epg : $("#epg-radical-name-epg-bridge-chain").val(),
+                bridge : $("#bridge-radical-name-epg-bridge-chain").val(),
+                specific :  $("#specific-epg-bridge-chain").val(),
+                vlan : $("#vlan-pool-epg-bridge-chain").val()
+
+            },
+            function(data){
+                $("#resultat-new-epg-bridge-chain").html("<p>"+data+"</p>");
+
+            },
+            'text'
+        );
+
+        AddActions("ACI", "EPG chain "+$("#specific-epg-bridge-chain").val()+" has been created.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-physical-domain").click(function(e){
@@ -274,6 +164,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "Physical Domain "+$("#physical-domain-physical").val()+" has been created.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-pool-vlan").click(function(e){
@@ -298,6 +189,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "Pool Vlans "+$("#vlan-pool-vlan").val()+" has been created.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-epg").click(function(e){
@@ -322,6 +214,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "EPG "+$("#epg-epg").val()+" has been created.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#new-aaep").click(function(e){
@@ -354,6 +247,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "AAEP "+$("#aaep-aaep").val()+" has been created.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-tenant").click(function(e){
@@ -374,6 +268,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "Tenant "+$("#del-tenant-tenant").val()+" has been deleted.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-pool-vlan").click(function(e){
@@ -395,6 +290,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "Pool Vlan "+$("#del-vlan-pool-vlan").val()+" has been deleted.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-physical-domain").click(function(e){
@@ -415,6 +311,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "Physical Domain "+$("#del-physical-physical-domain").val()+" has been deleted.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#del-aaep").click(function(e){
@@ -433,6 +330,8 @@ $(document).ready(function(){
             },
             'text'
         );
+        AddActions("ACI", "AAEP "+$("#del-aaep-aaep").val()+" has been deleted by.");
+
     });
 
     $("#del-subnet").click(function(e){
@@ -455,6 +354,7 @@ $(document).ready(function(){
         );
 
         AddActions("ACI", "Subnet "+$("#del-subnet-subnet").val()+" has been deleted.");
+        AddClicktoDatabase("ACI");
     });
 
     $("#get-bridge-info").click(function(e){
@@ -499,6 +399,8 @@ $(document).ready(function(){
             },
             'text'
         );
+
+        AddClicktoDatabase("ACI");
     });
 
     $("#verify-exist").click(function(e){
@@ -517,6 +419,7 @@ $(document).ready(function(){
             },
             'text'
         );
+        AddClicktoDatabase("ACI");
     });
 
     $("#instance").click(function(e){
@@ -525,16 +428,10 @@ $(document).ready(function(){
 
     });
 
-    $("#demo-long").click(function(e){
-        showStuff('aci-configuration');
-        e.preventDefault();
-
-    });
-
     $("#start-demo-long").click(function(e){
         showStuff('aci-configuration');
         $('#prevent-windows').hide();
-        $('#load').show();
+        $('#load-long').show();
 
         e.preventDefault();
 
@@ -569,7 +466,7 @@ $(document).ready(function(){
             },
             function(data){
                 $("#resultat-chain-service-long").html("<p>"+data+"</p>");
-                $('#load').hide();
+                $('#load-long').hide();
                 $('#start-demo-long').hide();
                 $('#comment-demo-long').hide();
                 $('#prevent-windows').show();
@@ -579,7 +476,62 @@ $(document).ready(function(){
             'text'
         );
 
-        AddActions("ACI", "The demonstration to"+$("#host-chain").val()+" has been lunched on Tenant"+$("#tenant-chain").val());
+        AddActions("ACI", "The demonstration on "+$("#host-chain").val()+" has been launched.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#start-demo-speed").click(function(e){
+        showStuff('aci-configuration');
+        $('#prevent-windows').hide();
+        $('#load-speed').show();
+
+        e.preventDefault();
+
+        $.post('CreateChainServices.php',
+            {
+                fileName : $("#select-fileName").val()
+            },
+            function(data){
+                $("#windows-chain-service-speed").show();
+                $("#resultat-chain-service-speed").html("<p>"+data+"</p>");
+                $('#load-speed').hide();
+                $('#start-demo-speed').hide();
+                $('#comment-demo-speed').hide();
+                $('#prevent-windows').show();
+                $('#start-demo-speed-ok').show();
+                $('#comment-demo-speed-succed').show();
+            },
+            'text'
+        );
+
+        AddActions("ACI", "The demonstration "+$("#select-fileName").val()+" has been launched.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#start-demo-speed-bridge-chain").click(function(e){
+        e.preventDefault();
+        $("#comment-demo-speed-bridge-chain").html("<p>Operation in progress ...</p>");
+        $.post('CreateEPGBridgeChain.php',
+            {
+                fileName : $("#select-fileName-BridgeChain").val()
+            },
+            function(data){
+                $("#comment-demo-speed-bridge-chain").html("<p>Finished operation</p>");
+                $('#windows-chain-service-speed-bridge-chain').show();
+                $('#start-demo-speed-bridge-chain').hide();
+                $("#resultat-chain-service-speed-bridge-chain").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddActions("ACI", "The demo bridge chain "+$("#select-fileName").val()+" has been launched.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#demo-bridge-chain").click(function(e){
+        e.preventDefault();
+        $("#comment-demo-speed-bridge-chain").html("<p>Are you sure you want to run this demonstration ?</p>");
+        $('#start-demo-speed-bridge-chain').show();
     });
 
     $("#demo-long").click(function(e){
@@ -591,7 +543,21 @@ $(document).ready(function(){
         $('#comment-demo-long').show();
     });
 
-    $("start-demo-long-ok").click(function(e){
+    $("#demo-speed").click(function(e){
+        e.preventDefault();
+
+        $('#start-demo-speed-ok').hide();
+        $('#comment-demo-speed-succed').hide();
+        $('#start-demo-speed').show();
+        $('#comment-demo-speed').show();
+    });
+
+    $("#start-demo-long-ok").click(function(e){
+        e.preventDefault();
+
+    });
+
+    $("#start-demo-speed-ok").click(function(e){
         e.preventDefault();
 
     });
@@ -636,101 +602,213 @@ $(document).ready(function(){
             'text'
         );
 
-        AddActions("ACI", "The demonstration to"+$("#host-chain").val()+" has been saved");
+        AddActions("ACI", "The demonstration on "+$("#host-chain").val()+" has been saved by.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#preview-configuration").click(function(e){
+        e.preventDefault();
+        $.post('PreviewConfiguration.php',
+            {
+                fileName : $("#select-fileName").val()
+            },
+            function(data){
+                $("#comment-demo-preview").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The configuration "+$("#select-fileName").val()+" has been previewed.");
+
+    });
+
+    $("#preview-configuration-bridge-chain").click(function(e){
+        e.preventDefault();
+        $.post('PreviewConfigurationBridgeChain.php',
+            {
+                fileName : $("#select-fileName-BridgeChain").val()
+            },
+            function(data){
+                $("#comment-demo-preview-bridge-chain").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The config Bridge "+$("#select-fileName-BridgeChain").val()+" has been previewed.");
+
+    });
+
+    $("#preview-configuration-suppr").click(function(e){
+        e.preventDefault();
+        $.post('PreviewConfiguration.php',
+            {
+                fileName : $("#select-delete-configuration").val()
+            },
+            function(data){
+                $("#comment-demo-preview-suppr").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The configuration "+$("#select-delete-configuration").val()+" has been previewed.");
+
+    });
+
+    $("#preview-configuration-suppr-bridge-chain").click(function(e){
+        e.preventDefault();
+        $.post('PreviewConfigurationBridgeChain.php',
+            {
+                fileName : $("#select-delete-configuration-bridge-chain").val()
+            },
+            function(data){
+                $("#comment-demo-preview-suppr-bridge-chain").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The config Bridge"+$("#select-delete-configuration").val()+" has been previewed.");
+
+    });
+
+    $("#delete-configuration").click(function(e){
+        e.preventDefault();
+        $.post('DeleteConfiguration.php',
+            {
+                fileName : $("#select-delete-configuration").val()
+            },
+            function(data){
+                $("#comment-delete").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The configuration "+$("#select-delete-configuration").val()+" has been deleted.");
+
+    });
+
+    $("#delete-configuration-bridge-chain").click(function(e){
+        e.preventDefault();
+        $.post('DeleteConfigurationBridgeChain.php',
+            {
+                fileName : $("#select-delete-configuration-bridge-chain").val()
+            },
+            function(data){
+                $("#comment-demo-preview-del-bridge-chain").html("<p>"+data+"</p>");
+            },
+            'text'
+        );
+
+        AddClicktoDatabase("ACI");
+        AddActions("ACI", "The configuration "+$("#select-delete-configuration-bridge-chain").val()+" has been deleted.");
+
+    });
+
+    $("#save-config-demo-bridge-chain").click(function(e){
+        e.preventDefault();
+
+        $.post('SaveConfigurationDemoBridgeChain.php',
+            {
+                fileName :$("#name-configuration-epg-bridge-chain").val(),
+                host : $("#host-default").val(),
+                login : $("#login-default").val(),
+                password : $("#passwd-default").val(),
+                tenant : $("#tenant-epg-bridge-chain").val(),
+                private : $("#private-epg-bridge-chain").val(),
+                pool : $("#vlan-pool-epg-bridge-chain").val(),
+                profile : $("#profile-epg-bridge-chain").val(),
+                epg : $("#epg-radical-name-epg-bridge-chain").val(),
+                bridge : $("#bridge-radical-name-epg-bridge-chain").val(),
+                specific : $("#specific-epg-bridge-chain").val()
+            },
+            function(data){
+                $("#resultat-new-epg-bridge-chain").html("<p>"+data+"</p>")
+            },
+            'text'
+        );
+
+        AddActions("ACI", "The demonstration on "+$("#host-default").val()+" has been saved by.");
+        AddClicktoDatabase("ACI");
+    });
+
+    $("#new-vlan-services").click(function(e){
+        e.preventDefault();
+
+        UCS_DATA = {
+            'ip_address': $("#host-default-vlan").val(),
+            'login': $("#login-default-vlan").val(),
+            'password': $("#passwd-default-vlan").val(),
+            'radical' : $("#radical-vlan-name-services").val(),
+            'specific' : $("#specific-vlan-number-services").val(),
+            'group' : $("#attach-group-vlan-services").val(),
+            'org' : $("#organisation-vlan-services").val(),
+            'template' : $("#template-vlan-services").val(),
+            'vmnic' : $("#card-vlan-services").val()
+        };
+
+        $('#resultat-new-vlan-services').html("<p>Operation in progress ...</p>");
+        var url="http://plb-api.cisco.com:5000/.api/ucs/create-vlan";
+        var ajaxFn = function (){ $.ajax({
+            dataType: "json",
+            url: url ,
+            type: 'POST',
+            data: UCS_DATA,
+            crossDomain : true
+        }).done(function (data){
+            $('#resultat-new-vlan-services').html("<p> </p>");
+            for (i = 0; i < data.resultat.length; i++) {
+                $('#resultat-new-vlan-services').append("<p>"+data.resultat[i]+"</p>");
+            }
+
+            });
+        };
+
+        ajaxFn();
+
+        AddActions("VLAN", "New Vlan(s) "+$("#specific-vlan-number-services").val()+" has been created on UCS Manager "+$("#host-default-vlan").val()+".");
+        AddClicktoDatabase("VLAN");
+    });
+
+    $("#del-vlan-services").click(function(e){
+        e.preventDefault();
+
+        UCS_DATA = {
+            'ip_address': $("#host-default-vlan").val(),
+            'login': $("#login-default-vlan").val(),
+            'password': $("#passwd-default-vlan").val(),
+            'radical' : $("#del-radical-vlan-name-services").val(),
+            'specific' : $("#del-specific-vlan-number-services").val(),
+            'group' : $("#detach-group-vlan-services").val(),
+            'org' : $("#del-organisation-vlan-services").val(),
+            'template' : $("#del-template-vlan-services").val(),
+            'vmnic' : $("#del-card-vlan-services").val()
+        };
+        $('#resultat-remove-vlan-services').html("<p>Operation in progress ...</p>");
+        var url="http://plb-api.cisco.com:5000/.api/ucs/remove-vlan";
+        var ajaxFn = function (){ $.ajax({
+            dataType: "json",
+            url: url ,
+            type: 'POST',
+            data: UCS_DATA
+
+        }).done(function (data){
+            $('#resultat-remove-vlan-services').html("<p> </p>");
+            for (i = 0; i < data.resultat.length; i++) {
+                $('#resultat-remove-vlan-services').append("<p>"+data.resultat[i]+"</p>");
+            }
+
+        });
+
+        };
+        ajaxFn();
+
+        AddActions("VLAN", "Vlan(s) "+$("#del-specific-vlan-number-services").val()+" has been removed on UCS Manager "+$("#host-default-vlan").val()+".");
+        AddClicktoDatabase("VLAN");
     });
 
 });
 
-$(function(){
-    <?php
-        $connect=mysql_connect('127.0.0.1','mamorim','cisco') or die('Error'.mysql_error());
-        mysql_select_db('API_ENVIRONMENT');
-        $reg=mysql_query("select * from engagement");
-        $total=mysql_num_rows($reg);
-        $reg=mysql_query("select * from engagement where name_engagement='ACI' ");
-        $rows=mysql_num_rows($reg);
-        echo "var aci=$rows;";
-        $reg=mysql_query("select * from engagement where name_engagement='QvBN' ");
-        $rows=mysql_num_rows($reg);
-        echo "var qvbn=$rows;";
-    ?>
-    Morris.Bar({
-        element: 'morris-bar-chart-element',
-        data: [{
-            y: 'from 10/09/14 to today',
-            a: aci,
-            b: qvbn,
-            c: 1,
-            d: 1
-        }],
-        xkey: 'y',
-        ykeys: ['a', 'b','c','d'],
-        labels: ['ACI', 'QvBN','UCS','CSR'],
-        hideHover: 'auto',
-        resize: true
-    });
-
-});
-
-function AddClicktoDatabase(name) {
-    $.post('SqlAddClick.php',
-        {
-            nameEngagement : name
-        },
-        'text'
-    );
-}
-
-function AddActions(name, description){
-    $.post('SqlAddActions.php',
-        {
-            name : name,
-            description : description
-        },
-        'text'
-    );
-}
-
-
-</script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /#page-wrapper -->
-
-<!-- jQuery Version 1.11.0 -->
-<script src="js/jquery-1.11.0.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="js/plugins/metisMenu/metisMenu.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="js/plugins/morris/raphael.min.js"></script>
-<script src="js/plugins/morris/morris.min.js"></script>
-<script src="js/plugins/morris/morris-data.js"></script>
-
-<!-- DataTables JavaScript -->
-<script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-<script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="js/sb-admin-2.js"></script>
-
-<!-- Flot Charts JavaScript -->
-<script src="js/plugins/flot/excanvas.min.js"></script>
-<script src="js/plugins/flot/jquery.flot.js"></script>
-<script src="js/plugins/flot/jquery.flot.pie.js"></script>
-<script src="js/plugins/flot/jquery.flot.resize.js"></script>
-<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="js/plugins/flot/flot-data.js"></script>
-
-</body>
-
-</html>

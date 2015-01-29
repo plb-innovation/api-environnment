@@ -41,7 +41,7 @@ function CreatePhysicalDomain($host, $login, $password, $physical, $vlan){
 
 function CreateBridgeDomain($host, $login, $password, $tenant, $bridge, $private, $i, $j, $k){
     $result=array();
-    exec("python /var/www/API-frontend/script/gen-xml/GenXmlBridgeDomain.py 3 $tenant $bridge-"."1".$i.$j.$k." $private");
+    exec("python /var/www/API-frontend/script/gen-xml/GenXmlBridgeDomain.py $tenant $bridge-"."1".$i.$j.$k." $private");
     exec("python /var/www/API-frontend/script/post/GenConfigPost.py $host $login $password xml /api/node/mo/.xml /var/www/API-frontend/xml/05-Bridge-Domain.xml 1 ");
     exec("python /var/www/API-frontend/script/post/PostRequest.py /var/www/API-frontend/config/request.cfg",$result);
     prettyPrint($result);

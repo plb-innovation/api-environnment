@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Amorim
  * Date: 29/01/2015
- * Time: 11:10
+ * Time: 13:05
  */
 
 session_start();
@@ -11,6 +11,7 @@ session_start();
 if($_SESSION['username']){
 
 }else header("Location:login.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -64,10 +65,61 @@ if($_SESSION['username']){
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="js/index.js"></script>
 
-        <div class="box" id="qvbn-configuration">
+        <div class="box" id="term-configuration">
+            <div class="col-lg-12">
+                <h1 class="page-header">Console Services</h1>
+
+                <div class="col-lg-12">
+
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#Console">Console</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#edit-demonstration">Edit démonstration</a>
+                        </li>
+                        <li>
+                            <a data-toggle="tab" href="#launch-demonstration">Launch demonstration</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Console" class="tab-pane fade in active">
+
+                            <div class="well well-sm" style="margin-top: 17px;">
+                                <h4 >Description</h4>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Select Console</label>
+                                <select class="form-control" id="select-console-services">
+                                    <option>None</option>
+                                    <option>Terminal server</option>
+                                    <option>Parlab Samba</option>
+                                    <option>Prime Infrastructure</option>
+                                </select>
+                                <p class="help-block">example : Terminal server</p>
+                            </div>
+
+                            <!-- 16:9 aspect ratio -->
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" frameborder="0" src="http://127.0.0.1:8022/" style="width: 50%;padding-bottom: 25%;"></iframe>
+                            </div>
+
+                            <!--<iframe src="http://plb-api.cisco.com:6275/"></iframe>-->
+                            <button class="btn btn-outline btn-primary" type="button" style="float: right;" >Add Console</button>
+
+                        </div>
+                        <div id="edit-demonstration" class="tab-pane fade">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicin…</p>
+                        </div>
+                        <div id="launch-demonstration" class="tab-pane fade">
+                            <p>bloublou</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-
     </div>
 </div>
 
