@@ -49,7 +49,7 @@ function sleep(milliSeconds){
 }
 
 function AddClicktoDatabase(name) {
-    $.post('SqlAddClick.php',
+    $.post('php/SqlAddClick.php',
         {
             nameEngagement : name
         },
@@ -58,7 +58,7 @@ function AddClicktoDatabase(name) {
 }
 
 function AddActions(name, description){
-    $.post('SqlAddActions.php',
+    $.post('php/SqlAddActions.php',
         {
             name : name,
             description : description
@@ -74,7 +74,7 @@ $(document).ready(function(){
     $("#new-tenant").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('CreateTenant.php',
+        $.post('php/aci/CreateTenant.php',
             {
                 // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
                 host : $("#host-default").val(),
@@ -96,7 +96,7 @@ $(document).ready(function(){
     $("#new-bridge").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('CreateBridgeDomain.php',
+        $.post('php/aci/CreateBridgeDomain.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -120,7 +120,7 @@ $(document).ready(function(){
     $("#new-epg-bridge-chain").click(function(e){
         e.preventDefault();
         $("#resultat-new-epg-bridge-chain").html("<p>Operation in progress ...</p>");
-        $.post('CreateEPGBridgeChain.php',
+        $.post('php/aci/CreateEPGBridgeChain.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -148,7 +148,7 @@ $(document).ready(function(){
     $("#new-physical-domain").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('CreatePhysicalDomain.php',
+        $.post('php/aci/CreatePhysicalDomain.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -170,7 +170,7 @@ $(document).ready(function(){
     $("#new-pool-vlan").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('CreatePoolVlans.php',
+        $.post('php/aci/CreatePoolVlans.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -195,7 +195,7 @@ $(document).ready(function(){
     $("#new-epg").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('CreateEPG.php',
+        $.post('php/aci/CreateEPG.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -220,7 +220,7 @@ $(document).ready(function(){
     $("#new-aaep").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('CreateAttachableAccessEntityProfile.php',
+        $.post('php/aci/CreateAttachableAccessEntityProfile.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -253,7 +253,7 @@ $(document).ready(function(){
     $("#del-tenant").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('DeleteTenant.php',
+        $.post('php/aci/DeleteTenant.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -274,7 +274,7 @@ $(document).ready(function(){
     $("#del-pool-vlan").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('DeletePoolVlan.php',
+        $.post('php/aci/DeletePoolVlan.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -296,7 +296,7 @@ $(document).ready(function(){
     $("#del-physical-domain").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('DeletePhysicalDomain.php',
+        $.post('php/aci/DeletePhysicalDomain.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -317,7 +317,7 @@ $(document).ready(function(){
     $("#del-aaep").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('DeleteAttachableAccessEntityProfile.php',
+        $.post('php/aci/DeleteAttachableAccessEntityProfile.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -337,7 +337,7 @@ $(document).ready(function(){
     $("#del-subnet").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('DeleteSubnet.php',
+        $.post('php/aci/DeleteSubnet.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -360,7 +360,7 @@ $(document).ready(function(){
     $("#get-bridge-info").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('GetBridgeDomain.php',
+        $.post('php/aci/GetBridgeDomain.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -386,7 +386,7 @@ $(document).ready(function(){
     $("#get-tenant-epg-info").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('GetEpgInfo.php',
+        $.post('php/aci/GetEpgInfo.php',
             {
                 host : $("#host-default").val(),
                 login : $("#login-default").val(),
@@ -406,7 +406,7 @@ $(document).ready(function(){
     $("#verify-exist").click(function(e){
         showStuff('aci-configuration');
         e.preventDefault();
-        $.post('GetExistTenant.php',
+        $.post('php/aci/GetExistTenant.php',
             {
                 host : $("#host-chain").val(),
                 login : $("#login-chain").val(),
@@ -423,19 +423,17 @@ $(document).ready(function(){
     });
 
     $("#instance").click(function(e){
-        showStuff('qvbn-configuration');
         e.preventDefault();
 
     });
 
     $("#start-demo-long").click(function(e){
-        showStuff('aci-configuration');
         $('#prevent-windows').hide();
         $('#load-long').show();
 
         e.preventDefault();
 
-        $.post('CreateChainServices.php',
+        $.post('php/aci/CreateChainServices.php',
             {
                 host : $("#host-chain").val(),
                 login : $("#login-chain").val(),
@@ -487,7 +485,7 @@ $(document).ready(function(){
 
         e.preventDefault();
 
-        $.post('CreateChainServices.php',
+        $.post('php/aci/CreateChainServices.php',
             {
                 fileName : $("#select-fileName").val()
             },
@@ -511,7 +509,7 @@ $(document).ready(function(){
     $("#start-demo-speed-bridge-chain").click(function(e){
         e.preventDefault();
         $("#comment-demo-speed-bridge-chain").html("<p>Operation in progress ...</p>");
-        $.post('CreateEPGBridgeChain.php',
+        $.post('php/aci/CreateEPGBridgeChain.php',
             {
                 fileName : $("#select-fileName-BridgeChain").val()
             },
@@ -554,19 +552,16 @@ $(document).ready(function(){
 
     $("#start-demo-long-ok").click(function(e){
         e.preventDefault();
-
     });
 
     $("#start-demo-speed-ok").click(function(e){
         e.preventDefault();
-
     });
 
     $("#save-config-demo").click(function(e){
-        showStuff('aci-configuration');
         e.preventDefault();
 
-        $.post('SaveConfigurationDemo.php',
+        $.post('php/aci/SaveConfigurationDemo.php',
             {
                 fileName :$("#name-configuration-save").val(),
                 host : $("#host-chain").val(),
@@ -608,7 +603,7 @@ $(document).ready(function(){
 
     $("#preview-configuration").click(function(e){
         e.preventDefault();
-        $.post('PreviewConfiguration.php',
+        $.post('php/aci/PreviewConfiguration.php',
             {
                 fileName : $("#select-fileName").val()
             },
@@ -625,7 +620,7 @@ $(document).ready(function(){
 
     $("#preview-configuration-bridge-chain").click(function(e){
         e.preventDefault();
-        $.post('PreviewConfigurationBridgeChain.php',
+        $.post('php/aci/PreviewConfigurationBridgeChain.php',
             {
                 fileName : $("#select-fileName-BridgeChain").val()
             },
@@ -642,7 +637,7 @@ $(document).ready(function(){
 
     $("#preview-configuration-suppr").click(function(e){
         e.preventDefault();
-        $.post('PreviewConfiguration.php',
+        $.post('php/aci/PreviewConfiguration.php',
             {
                 fileName : $("#select-delete-configuration").val()
             },
@@ -659,7 +654,7 @@ $(document).ready(function(){
 
     $("#preview-configuration-suppr-bridge-chain").click(function(e){
         e.preventDefault();
-        $.post('PreviewConfigurationBridgeChain.php',
+        $.post('php/aci/PreviewConfigurationBridgeChain.php',
             {
                 fileName : $("#select-delete-configuration-bridge-chain").val()
             },
@@ -676,7 +671,7 @@ $(document).ready(function(){
 
     $("#delete-configuration").click(function(e){
         e.preventDefault();
-        $.post('DeleteConfiguration.php',
+        $.post('php/aci/DeleteConfiguration.php',
             {
                 fileName : $("#select-delete-configuration").val()
             },
@@ -693,7 +688,7 @@ $(document).ready(function(){
 
     $("#delete-configuration-bridge-chain").click(function(e){
         e.preventDefault();
-        $.post('DeleteConfigurationBridgeChain.php',
+        $.post('php/aci/DeleteConfigurationBridgeChain.php',
             {
                 fileName : $("#select-delete-configuration-bridge-chain").val()
             },
@@ -711,7 +706,7 @@ $(document).ready(function(){
     $("#save-config-demo-bridge-chain").click(function(e){
         e.preventDefault();
 
-        $.post('SaveConfigurationDemoBridgeChain.php',
+        $.post('php/aci/SaveConfigurationDemoBridgeChain.php',
             {
                 fileName :$("#name-configuration-epg-bridge-chain").val(),
                 host : $("#host-default").val(),
